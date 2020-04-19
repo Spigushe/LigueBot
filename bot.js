@@ -37,7 +37,7 @@ client.on('message', message => {
 	if (message.author.bot) return;
 	//message.reply("message envoyé à "+message.createdAt);
 	let date = new Date();
-	message.reply("javascript : "+date.maintenant);
+	message.reply("javascript : "+date.maintenant());
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
