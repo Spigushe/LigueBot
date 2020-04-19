@@ -13,6 +13,7 @@ var prefix = "!";
 
 /** Gestion de la date
  * Extention de l'objet Date
+ * Affiche AAAAMMJJHHMM
  **/
 Date.prototype.maintenant = function() {
 	var mm = this.getMonth() + 1; // getMonth() is zero-based
