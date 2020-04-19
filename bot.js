@@ -24,6 +24,7 @@ client.on('message', message => {
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
+		message.reply(commande);
 
 		try {
 			let fichierCommande = require('./commande/${commande}.js');
