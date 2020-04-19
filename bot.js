@@ -21,16 +21,15 @@ client.on('ready', () => {
 
 client.on('message', message => {    
 	if (message.author.bot) return;
-	message.reply(message);
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
-		message.reply(commande);
-
 		try {
+			message.reply('./commande/${commande}.js');
 			let fichierCommande = require('./commande/${commande}.js');
 			fichierCommande.run(client, message, Discord, prefix);
 		} catch (err) {
+			message.reply(err);
 			console.error(err);
 		}
 	}
