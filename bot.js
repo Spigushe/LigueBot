@@ -4,11 +4,11 @@ const client = new Discord.Client();
 
 // Connexion à la base de données
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('http://ligue.mtgnantes.fr/db/database.sqlite', sqlite3.OPEN_READWRITE, (err) => {
+let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error(err.message);
     }
-    console.log('Connected to the chinook database.');
+    console.log('Connecté à la base de données');
 });
 
 client.on('ready', () => {
