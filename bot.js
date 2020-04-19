@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 client.on('message', message => {    
 	if (message.author.bot) return;
+	message.reply('message envoyé à '+message.createdTimestamp);
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
