@@ -3,8 +3,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Connexion à la base de données
-const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database(':memory:');
+const mysql = require('mysql');
+
+// Préparation de l'écoute
+var prefix = "!";
 
 client.on('ready', () => {
     console.log('I am ready!');
