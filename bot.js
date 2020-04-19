@@ -19,7 +19,8 @@ client.on('ready', () => {
 client.on('message', message => {    
 	if (message.author.bot) return;
 	//message.reply("message envoyé à "+message.createdAt);
-	message.reply("javascript : "+Date.getFullYear()+"/"+Date.getMonth()+"/"+Date.getDate()+" - "+Date.getHours()+":"+Date.getMinutes());
+	let date = new Date();
+	message.reply("javascript : "+date.getFullYear()+"/"+date.getMonth()+"/"+date.getDate()+" - "+date.getHours()+":"+date.getMinutes());
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
