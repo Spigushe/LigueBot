@@ -2,9 +2,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+/*
 // Connexion à la base de données
 const sqlite = require('sqlite3');
 sqlite.open(`./database/database.sqlite`);
+//*/
 
 // Préparation de l'écoute
 var prefix = "!";
