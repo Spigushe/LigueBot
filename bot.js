@@ -20,11 +20,18 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {    
-    if (message.content === 'ping') {
-        message.reply('pong');
-        message.author.send("ok bouffon");
-        return;
-    }
+    if (message.author.bot) return;
+	if (message.content.startsWith(prefix)) {
+		var args = message.content.slice(prefix.length).trim().split(/ +/g);
+		var commande = args.shift().toLowerCase();
+		
+		try {
+			let fichierCommande = require('./commande/${commande}.js');
+			fichierCommande.run(client, message, Discord, prefix);
+		} catch (err) {
+			console.error(err);
+		}
+	}
 });
 
 // THIS  MUST  BE  THIS  WAY
