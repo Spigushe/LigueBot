@@ -25,11 +25,9 @@ client.on('message', message => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 		try {
-			message.reply('./commande/${'+commande+'}.js');
 			let fichierCommande = require(`./commande/${commande}.js`);
 			fichierCommande.run(client, message, Discord, prefix);
 		} catch (err) {
-			message.reply(err);
 			console.error(err);
 		}
 	}
