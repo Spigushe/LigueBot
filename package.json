@@ -6,8 +6,7 @@
 	"dependencies": {
 		"discord.io": "^2.5.3",
 		"discord.js": "^12.1.1",
-		"dotenv": "^8.2.0",
-		"mysql": "^2.18.1"
+		"sqlite" : "2.8.0"
 	},
 	"author": "Cleomene & Linkanor & Spigushe",
 	"license": "ISC"
