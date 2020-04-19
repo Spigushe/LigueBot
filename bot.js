@@ -4,12 +4,7 @@ const client = new Discord.Client();
 
 // Connexion à la base de données
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => {
-    if (err) {
-        console.error(err.message);
-    }
-    console.log('Connecté à la base de données');
-});
+let db = new sqlite3.Database(':memory:');
 
 client.on('ready', () => {
     console.log('I am ready!');
