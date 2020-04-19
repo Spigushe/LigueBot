@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Connexion à la base de données
-const mysql = require('mysql');
+//const mysql = require('mysql');
 
 // Préparation de l'écoute
-var prefix = "!";
+//var prefix = "!";
 
 client.on('ready', () => {
     console.log('I am ready!');
