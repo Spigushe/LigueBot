@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Connexion à la base de données
+const sqlite3 = require('sqlite3').verbose();
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -10,10 +11,10 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content === 'ping') {
-       message.reply('pong');
-       message.author.send("ok bouffon");
-       return;
-       }
+        message.reply('pong');
+        message.author.send("ok bouffon");
+        return;
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
