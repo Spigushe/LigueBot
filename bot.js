@@ -13,6 +13,14 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
+    let connexion = mysql.createConnection({
+        host: "localhost",
+		port : 3308,
+        user: "root",
+        password: "",
+        database: "dcligue"
+    });
+    
     if (message.content === 'ping') {
         message.reply('pong');
         message.author.send("ok bouffon");
