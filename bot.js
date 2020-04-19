@@ -3,7 +3,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Connexion à la base de données
-const mysql = require('mysql');
+const sqlite = require('sqlite3');
+let database = new sqlite.Database('./database/database.db', (err) => {
+	if (err) {
+		console.error(err.message);
+	}
+	console.log('Connecté à la base de données.');
+});
 
 // Préparation de l'écoute
 var prefix = "!";
@@ -12,15 +18,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('message', message => {
-    let connexion = mysql.createConnection({
-        host: "localhost",
-		port : 3308,
-        user: "root",
-        password: "",
-        database: "dcligue"
-    });
-    
+client.on('message', message => {    
     if (message.content === 'ping') {
         message.reply('pong');
         message.author.send("ok bouffon");
