@@ -11,6 +11,22 @@ sqlite.open(`./database/database.sqlite`);
 // Préparation de l'écoute
 var prefix = "!";
 
+/** Gestion de la date
+ * Extention de l'objet Date
+ **/
+Date.prototype.maintenant = function() {
+	var mm = this.getMonth() + 1; // getMonth() is zero-based
+	var dd = this.getDate();
+	var hh = this.getHours();
+	var mn = this.getMinutes();
+
+	return [this.getFullYear(),
+		(mm>9 ? '' : '0') + mm,
+		(dd>9 ? '' : '0') + dd,
+		hh,
+		mn].join('');
+};
+
 client.on('ready', () => {
 	client.user.setGame('Ranking : Bot 5');
 	console.log('I am ready!');
@@ -20,7 +36,7 @@ client.on('message', message => {
 	if (message.author.bot) return;
 	//message.reply("message envoyé à "+message.createdAt);
 	let date = new Date();
-	message.reply("javascript : "+date.getFullYear()+"/"+date.getMonth()+"/"+date.getDate()+" - "+date.getHours()+":"+date.getMinutes());
+	message.reply("javascript : "+date.maintenant);
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
