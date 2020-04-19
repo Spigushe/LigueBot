@@ -6,7 +6,7 @@ const client = new Discord.Client();
 //const mysql = require('mysql');
 
 // Préparation de l'écoute
-//var prefix = "!";
+var prefix = "!";
 
 client.on('ready', () => {
     console.log('I am ready!');
