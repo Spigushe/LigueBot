@@ -15,6 +15,7 @@ const database = new sqlite.Database('./database/database.sqlite', (err) => {
 var prefix = "!";
 
 client.on('ready', () => {
+	client.user.setGame('Ranking : Bot 5');
     console.log('I am ready!');
 });
 
