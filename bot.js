@@ -16,11 +16,12 @@ var prefix = "!";
 
 client.on('ready', () => {
 	client.user.setGame('Ranking : Bot 5');
-    console.log('I am ready!');
+	console.log('I am ready!');
 });
 
 client.on('message', message => {    
-    if (message.author.bot) return;
+	if (message.author.bot) return;
+	message.reply(message);
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
