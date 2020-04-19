@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 // Connexion à la base de données
 const sqlite = require('sqlite3');
-let database = new sqlite.Database('./database/database.db', (err) => {
+const database = new sqlite.Database('./database/database.sqlite', (err) => {
 	if (err) {
 		console.error(err.message);
 	}
