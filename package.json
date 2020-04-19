@@ -1,14 +1,14 @@
 {
 	"name": "LigueBot",
-	"description": "Handling a league",
 	"version": "1.0.0",
+	"description": "",
 	"main": "bot.js",
-	"scripts": {
-		"start": "node bot.js"
-	},
 	"dependencies": {
-		"discord.js": "11.1.0",
-		"request": "2.81.0",
-		"sqlite3": "^4.1.1"
-	}
+		"discord.io": "^2.5.3",
+		"discord.js": "^12.1.1",
+		"dotenv": "^8.2.0",
+		"mysql": "^2.18.1"
+	},
+	"author": "Cleomene & Linkanor & Spigushe",
+	"license": "ISC"
 }
