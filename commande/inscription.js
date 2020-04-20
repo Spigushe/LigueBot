@@ -3,8 +3,13 @@ exports.run = (client, message, Discord, prefix) => {
 	const axios = require('axios').default;
 	
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
-	var liste_MV = args[1].split("=")[1];
+	var inscription = {
+		tag_auteur: message.author.tag,
+		id_auteur: message.author.id
+	};
 	
+	message.channel.send(inscription);
+	/*
 	// Test 
 	axios({
 		method: 'get',
