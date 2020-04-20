@@ -9,14 +9,12 @@ exports.run = (client, message, Discord, prefix) => {
 	// Contrôle du nombre de segments
 	if (args.length != 4) { 
 		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");
-		message.delete();
 		return false;
 	}
 	// Contrôle du lien Magic-Ville
 	if (!(args[3].match(/magic-ville/gi)) && !(args[3].match(/showdeck/gi))) {
 		message.reply("le lien fourni n'est pas un lien vers un deck Magic-Ville");
-		message.delete();
-		return false();
+		return false;
 	}
 	
 	//Données pour inscription

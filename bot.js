@@ -24,6 +24,7 @@ client.on('message', message => {
 			console.error(err);
 		}
 	}
+	message.delete();
 });
 
 // THIS  MUST  BE  THIS  WAY
