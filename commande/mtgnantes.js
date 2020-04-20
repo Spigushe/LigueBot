@@ -11,7 +11,10 @@ exports.run = (client, message, Discord, prefix) => {
 		},
 		responseType: 'json'
 	}).then( function (msg) {
-		message.channel.send( msg['return'] );
+		message.channel.send('Envoi OK');
+		let retour = JSON.parse( msg );
+		message.channel.send('Parse JSON');
+		message.channel.send( retour.info );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
