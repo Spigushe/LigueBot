@@ -14,8 +14,7 @@ client.on('message', message => {
 	if (message.author.bot) return;
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
-		message.channel.send(args[0]);
-		var commande = args.shift().toLowerCase();
+		var commande = args[0].shift().toLowerCase();
 		try {
 			let fichierCommande = require(`./commande/${commande}.js`);
 			fichierCommande.run(client, message, Discord, prefix);
