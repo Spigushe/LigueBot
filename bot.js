@@ -2,11 +2,19 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-/*
 // Connexion à la base de données
-const sqlite = require('sqlite3');
-sqlite.open(`./database/database.sqlite`);
-//*/
+const mysql = require('mysql').Client;
+const client = new Client(); 
+client.host = 'mtgnantes.fr.mysql';
+client.user = 'mtgnantes_frdiscord_ligue';
+client.password = 'LigueDuelCommander';
+client.connect(function(err, results) {
+    if (err) {
+        console.log("ERROR: " + err.message);
+        throw err;
+    }
+    console.log("connected.");
+});
 
 // Préparation de l'écoute
 var prefix = "!";

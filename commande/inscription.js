@@ -2,13 +2,21 @@ exports.run = (client, message, Discord, prefix) => {
 	message.reply("On amorce le processus d'inscription.");
 	
 	// Connexion à la base de données
-	const sqlite = require("sqlite3").verbose();
+	const mysql = require('mysql').Client;
+	const client = new Client(); 
 	
-	// Ouverture de la base de données
-	let db = new sqlite.Database('http://ligue.mtgnantes.fr/db/database.sqlite', (err) => {
-		if (err) { return console.error(err.message); }
-		console.log('Connected to the in-memory SQlite database.');
-		message.channel.send("Connecté à la base de données");
+	// Données de connexion à la base de données
+	client.host = 'mtgnantes.fr.mysql';
+	client.user = 'mtgnantes_frdiscord_ligue';
+	client.password = 'LigueDuelCommander';
+	
+	// Connexion à la base de données
+	client.connect(function(err, results) {
+	    if (err) {
+	        console.log("ERROR: " + err.message);
+	        throw err;
+	    }
+	    console.log("connected.");
 	});
 	
 	// Vérification de l'existence de la table des inscrits
@@ -20,16 +28,9 @@ exports.run = (client, message, Discord, prefix) => {
 						"hash_cockatrice	TEXT		NOT NULL,"+//
 						"id_role_discord	INTEGER		NOT NULL" +//
 					");";
-	db.run(sql_table, err => {
-		if (err) { return console.error(err.message); }
-		console.log("Successful creation of the 'Books' table");
-		message.channel.send("Commande de vérification de table inscrits_ligue OK");
+	client.query(sql_table, function (err) {
+		if (err) { message.channel.send(err); }
+		console.log('Création OK');
 	});
 	
-	// Fermeture de la connexion
-	db.close((err) => {
-		if (err) { return console.error(err.message); }
-		console.log('Close the database connection.');
-		message.channel.send("Connexion à la base de données fermée");
-	});
 }
