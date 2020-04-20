@@ -5,7 +5,7 @@ exports.run = (client, message, Discord, prefix) => {
 	const sqlite = require("sqlite3").verbose();
 	
 	// Ouverture de la base de données
-	let db = new sqlite.Database('./database/database.sqlite', (err) => {
+	let db = new sqlite.Database('http://ligue.mtgnantes.fr/db/database.sqlite', (err) => {
 		if (err) { return console.error(err.message); }
 		console.log('Connected to the in-memory SQlite database.');
 		message.channel.send("Connecté à la base de données");
