@@ -4,7 +4,6 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	message.channel.send("Liste MV : " + args[1]);
-	/*
 	var liste_MV = args[1].split("=")[1];
 	
 	message.channel.send("Liste MV : https://magic-ville.fr/fr/decks/dl_appr.php?ref="+liste_MV);
