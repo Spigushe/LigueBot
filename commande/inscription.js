@@ -17,15 +17,26 @@ exports.run = (client, message, Discord, prefix) => {
 		return false;
 	}
 	
-	message.channel.send( message.content );
-	
 	// Ajout dans la base
+	
+	axios({
+		method: 'post',
+		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
+		data: {
+			firstName: 'Fred',
+			lastName: 'Flintstone'
+		}
+	}).then( function (response) {
+		message.channel.send( response.data );
+	});
+	
+	
 	axios({
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
 		data: {
 			'tag_auteur': message.author.tag,
-			//'id_auteur' : message.author.id,
+			'id_auteur' : message.author.id,
 			//'pseudo'    : args[1],
 			//'hash'      : args[2],
 			//'liste_MV'  : args[3].split("=")[1]
