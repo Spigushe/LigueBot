@@ -10,7 +10,7 @@ exports.run = (client, message, Discord, prefix) => {
 			info: 'test'
 		}
 	}).then( function (msg) {
-		message.channel.send('Message : ' + Object.prototype.toString.call(msg) );
+		message.channel.send('Message : ' + msg[0] );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
