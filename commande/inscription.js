@@ -22,6 +22,7 @@ exports.run = (client, message, Discord, prefix) => {
 	}).then( function (response) {
 		message.channel.send( response.status );
 		message.channel.send( response.data.length );
+		message.channel.send( response.data );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
