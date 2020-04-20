@@ -12,6 +12,7 @@ exports.run = (client, message, Discord, prefix) => {
 	}).then( function (response) {
 		message.channel.send('Envoi OK');
 		message.channel.send( response.status );
+		message.channel.send( response.data );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
