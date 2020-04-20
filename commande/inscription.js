@@ -16,7 +16,7 @@ exports.run = (client, message, Discord, prefix) => {
 	message.channel.send('Données de connexion saisies');
 	
 	// Connexion à la base de données
-	message.channel('Amorce connexion');
+	message.channel.send('Amorce connexion');
 	sql.connect(function(err) {
 	    if (err) {
 	        message.channel.send("ERROR: " + err.message);
