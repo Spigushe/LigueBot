@@ -11,7 +11,7 @@ exports.run = (client, message, Discord, prefix) => {
 		url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
 	}).then( function (response) {
 		message.channel.send( response.status );
-		message.channel.send( response.data );
+		//message.channel.send( response.data ); // ne fonctionne pas du tout
 		message.channel.send( response.data === {} );
 		message.channel.send( response.data.length );
 		//response.data.forEach(element => message.channel.send(element)); // not a function
