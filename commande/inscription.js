@@ -2,9 +2,16 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
-	if (!verif(message)) { return false; }
-	
+	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
+	
+	// Contrôle des données envoyées
+	if (args.length != 4) { // Contrôle du nombre de segments
+		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");	
+		return false;
+	}
+	
+	//Données pour inscription
 	var inscription = {
 		'tag_auteur': message.author.tag,
 		'id_auteur': message.author.id,
@@ -16,7 +23,7 @@ exports.run = (client, message, Discord, prefix) => {
 	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
 			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
 	
-	// Test 
+	// Ajout dans la base
 	axios({
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
@@ -27,42 +34,3 @@ exports.run = (client, message, Discord, prefix) => {
 		message.channel.send('Erreur : ' + error );
 	});
 }
-
-var verif = function (message) {
-	let args = message.content.slice(prefix.length).trim().split(" ");
-	
-	if (args.length != 4) {
-		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");
-		return false;
-	}
-	/*
-	if (!lienMVValide(message)) {
-		message.reply("il ne s'agit pas d'un lien vers Magic-Ville");
-		return false;
-	}
-	//*/
-	return true;
-}
-
-/*
-var lienMVValide = function (msg) {
-	let url = msg.content.split(/ +/g)[3];
-	message.channel.send("Test de l'existence du site : " + url);
-	return false;
-}
-//*/
-
-/*
-var isValidURL = function (url) {
-	// Appel du package axios
-	const axios = require('axios').default;
-	
-	// On regarde si on arrive à se connecter
-	axios.get(url)
-	.then( function () {
-		return true;
-	}).catch( function () {
-		return false;
-	});
-}
-//*/
