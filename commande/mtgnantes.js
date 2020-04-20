@@ -8,9 +8,9 @@ exports.run = (client, message, Discord, prefix) => {
 	// Test 
 	axios({
 		method: 'get',
-		url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
+		//url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
+		url: 'http://edh.mtgnantes.fr/Deck/'+liste_MV,
 	}).then( function (response) {
-		message.channel.send('Envoi OK');
 		message.channel.send( response.status );
 		message.channel.send( response.data );
 	}).catch( function (error) {
