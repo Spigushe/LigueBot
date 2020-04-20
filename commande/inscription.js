@@ -3,6 +3,7 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	// Connexion à la base de données
 	const mysql = require('mysql');
+	message.channel.send('Package appelé');
 	
 	// Données de connexion à la base de données
 	var sql = mysql.createConnection({
@@ -12,8 +13,10 @@ exports.run = (client, message, Discord, prefix) => {
         'password':"LigueDuelCommander",
         'database':"mtgnantes_frdiscord_ligue"
 	});
+	message.channel('Données de connexion saisies');
 	
 	// Connexion à la base de données
+	message.channel('Amorce connexion');
 	sql.connect(function(err) {
 	    if (err) {
 	        message.channel.send("ERROR: " + err.message);
@@ -23,6 +26,7 @@ exports.run = (client, message, Discord, prefix) => {
 	    message.channel.send("Connecté à " + client.host);
 	});
 	
+	message.channel.send('Suite de la commande');
 	/*
 	// Vérification de l'existence de la table des inscrits
 	let sql_table = "CREATE TABLE IF NOT EXISTS inscrits_ligue (" +//
