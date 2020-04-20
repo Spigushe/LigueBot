@@ -2,30 +2,23 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
+	var args = message.split(" ");
+	var liste_MV = args[1].str.split("=")[1];
+	
+	message.channel.send("Liste MV : https://magic-ville.fr/fr/decks/dl_appr.php?ref="+liste_MV);
+	/*
 	// Test 
 	axios({
-		method: 'POST',
-		url: 'http://ligue.mtgnantes.fr',
+		method: 'get',
+		url: 'http://edh.mtgnantes.fr/Deck/Recuperer',
 		data: {
 			info: 'test'
 		},
 		responseType: 'json'
 	}).then( function (msg) {
 		message.channel.send('Envoi OK');
-		let retour = JSON.parse( msg );
-		message.channel.send('Parse JSON');
-		message.channel.send( retour.info );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
-	});
-		
-	/*
-	axios.post('http://ligue.mtgnantes.fr/', {
-		info: 'test'
-	}).then(function (msg) {
-		message.channel.send(msg);
-	}).catch(function (error) {
-		message.channel.send(error);
 	});
 	//*/
 }
