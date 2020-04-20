@@ -1,4 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
+	message.reply('pong');
+	
 	// Appel du package axios
 	const axios = require('axios').default;
 	message.reply('Appel AXIOS');
