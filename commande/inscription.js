@@ -28,10 +28,10 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.reply("Ton inscription a rencontré un problème : " + response.data);
+			message.author.send("Ton inscription a rencontré un problème : " + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
-			message.author.reply("Ton inscription a bien été validée");
+			message.author.send("Ton inscription a bien été validée");
 			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
 		}
 	}).catch( function (error) {
