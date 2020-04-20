@@ -18,7 +18,6 @@ exports.run = (client, message, Discord, prefix) => {
 	}
 	
 	// Ajout dans la base
-	/*
 	axios({
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
@@ -31,10 +30,6 @@ exports.run = (client, message, Discord, prefix) => {
 			'hash_cockatrice': args[2],
 			'liste_MV': args[3].split("=")[1]
 		}
-	//*/
-	axios.post('http://ligue.mtgnantes.fr/Inscription/Ajouter/',{
-		'test': 'essai',
-		'reussite': 'echec'
 	}).then( function (response) {
 		message.channel.send( response.data );
 		message.author.send("Ton inscription a été prise en compte. "+//
