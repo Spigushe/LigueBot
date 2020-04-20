@@ -23,8 +23,8 @@ client.on('message', message => {
 			message.reply("Cette commande n'existe pas");
 			console.error(err);
 		}
-	}
 	message.delete();
+	}
 });
 
 // THIS  MUST  BE  THIS  WAY
