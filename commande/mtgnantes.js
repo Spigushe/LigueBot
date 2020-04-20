@@ -11,9 +11,9 @@ exports.run = (client, message, Discord, prefix) => {
 	axios({
 		method: 'get',
 		url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
-	}).then( function (msg) {
+	}).then( function (response) {
 		message.channel.send('Envoi OK');
-		message.channel.send( msg );
+		message.channel.send( response.data );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
