@@ -17,6 +17,7 @@ exports.run = (client, message, Discord, prefix) => {
 		//response.data.forEach(element => message.channel.send(element)); // not a function
 		//message.channel.send( response.data.join(" ") ); // not a function
 		message.channel.send( typeof response.data === 'string' || response.data instanceof String );
+		message.channel.send( response.data + "" );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
