@@ -2,6 +2,11 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
+	if (!verif(message)) {
+		message.channel.send('conditions KO');
+		return false;
+	}
+	
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	var inscription = {
 		'tag_auteur': message.author.tag,
@@ -13,12 +18,6 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
 			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
-	
-	if (verif(message)) {
-		message.channel.send('conditions OK');
-	} else {
-		message.channel.send('conditions KO');	
-	}
 	
 	// Test 
 	axios({
@@ -36,18 +35,22 @@ var verif = function (message) {
 	let args = message.content.slice(prefix.length).trim().split(/ +/g);
 	
 	if (args.length != 4) return false;
+	/*
 	if (!lienMVValide(message)) {
 		message.reply("il ne s'agit pas d'un lien vers Magic-Ville");
 		return false;
 	}
+	//*/
 	return true;
 }
 
+/*
 var lienMVValide = function (msg) {
 	let url = msg.content.split(/ +/g)[3];
 	message.channel.send("Test de l'existence du site : " + url);
 	return false;
 }
+//*/
 
 /*
 var isValidURL = function (url) {
