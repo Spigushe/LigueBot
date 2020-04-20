@@ -1,6 +1,7 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
+	message.reply('Appel AXIOS');
 	
 	// Test 
 	axios.post('http://ligue.mtgnantes.fr/', {
