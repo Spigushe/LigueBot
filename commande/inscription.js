@@ -22,11 +22,15 @@ exports.run = (client, message, Discord, prefix) => {
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
 		data: {
+			'test': 'essai',
+			'reussite': 'echec'
+			/*
 			tag_auteur: message.author.tag,
 			id_auteur: message.author.id,
 			pseudo_cockatrice: args[1],
 			hash_cockatrice: args[2],
 			liste_MV: args[3].split("=")[1]
+			//*/
 		}
 	}).then( function (response) {
 		message.channel.send( response.data );
