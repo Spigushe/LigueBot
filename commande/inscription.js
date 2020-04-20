@@ -44,7 +44,7 @@ var verif = function (message) {
 }
 
 var lienMVValide = function (msg) {
-	let url = msg.split(/ +/g)[3];
+	let url = msg.content.split(/ +/g)[3];
 	message.channel.send("Test de l'existence du site : " + url);
 	return false;
 }
