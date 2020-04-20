@@ -13,6 +13,7 @@ exports.run = (client, message, Discord, prefix) => {
 		message.channel.send( response.status );
 		message.channel.send( response.data === {} );
 		message.channel.send( response.data.length );
+		response.data.forEach(element => message.channel.send(element));
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
