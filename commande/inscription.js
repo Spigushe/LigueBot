@@ -13,16 +13,16 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
 			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
-	/*
+	
 	// Test 
 	axios({
-		method: 'get',
-		url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
+		method: 'post',
+		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
+		data: inscription
 	}).then( function (response) {
 		message.channel.send( response.status );
 		message.channel.send( response.data.length );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
-	//*/
 }
