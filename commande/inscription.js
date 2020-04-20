@@ -36,22 +36,30 @@ var verif = function (message) {
 	let args = message.content.slice(prefix.length).trim().split(/ +/g);
 	
 	if (args.length != 4) return false;
-	if (!isValidURL(args[3])) {
+	if (!lienMVValide(message)) {
 		message.reply("il ne s'agit pas d'un lien vers Magic-Ville");
 		return false;
 	}
 	return true;
 }
 
+var lienMVValide = function (msg) {
+	let url = msg.split(/ +/g)[3];
+	message.channel.send("Test de l'existence du site : " + url);
+	return false;
+}
+
+/*
 var isValidURL = function (url) {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
 	// On regarde si on arrive à se connecter
 	axios.get(url)
-	.then( function (response) {
+	.then( function () {
 		return true;
-	}).catch( function (error) {
+	}).catch( function () {
 		return false;
 	});
 }
+//*/
