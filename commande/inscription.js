@@ -2,10 +2,7 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
-	if (!verif(message)) {
-		message.channel.send('conditions KO');
-		return false;
-	}
+	if (!verif(message)) { return false; }
 	
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	var inscription = {
@@ -32,9 +29,12 @@ exports.run = (client, message, Discord, prefix) => {
 }
 
 var verif = function (message) {
-	let args = message.content.slice(prefix.length).trim().split(/ +/g);
+	let args = message.content.slice(prefix.length).trim().split(" ");
 	
-	if (args.length != 4) return false;
+	if (args.length != 4) {
+		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");
+		return false;
+	}
 	/*
 	if (!lienMVValide(message)) {
 		message.reply("il ne s'agit pas d'un lien vers Magic-Ville");
