@@ -15,8 +15,8 @@ client.on('message', message => {
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		message.channel.send(args);
-		var commande = args[0].shift().toLowerCase();
-		//message.channel.send("Commande = " + commande);
+		var commande = args.shift().toLowerCase();
+		message.channel.send("Commande = " + commande);
 		/*
 		try {
 			let fichierCommande = require(`./commande/${commande}.js`);
