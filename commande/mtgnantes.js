@@ -12,7 +12,7 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 	}).then( function (msg) {
 		message.channel.send('Connexion faite');
-		message.channel.send('Message : ' + JSON.parse(msg).count );
+		message.channel.send('Message : ' + msg.length );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
