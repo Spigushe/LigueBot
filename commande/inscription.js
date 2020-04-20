@@ -14,16 +14,24 @@ exports.run = (client, message, Discord, prefix) => {
 	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
 			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
 	
+	if (verif()) {
+		message.channel.send('conditions OK');
+	} else {
+		message.channel.send('conditions KO');	
+	}
+	
 	// Test 
 	axios({
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
 		data: inscription
 	}).then( function (response) {
-		message.channel.send( response.status );
-		message.channel.send( response.data.length );
 		message.channel.send( response.data );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
+}
+
+var verif = function () {
+	return false;
 }
