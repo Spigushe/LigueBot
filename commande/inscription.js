@@ -7,6 +7,7 @@ exports.run = (client, message, Discord, prefix) => {
 	// Données de connexion à la base de données
 	var sql = mysql.createConnection({
         'host':"mtgnantes.fr.mysql",
+        'port':'3306',
         'user':"mtgnantes_frdiscord_ligue",
         'password':"LigueDuelCommander",
         'database':"mtgnantes_frdiscord_ligue"
