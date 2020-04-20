@@ -20,12 +20,11 @@ exports.run = (client, message, Discord, prefix) => {
 	// Ajout dans la base
 	
 	axios({
-		method: 'post',
-		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
-		data: {
-			firstName: 'Fred',
-			lastName: 'Flintstone'
-		}
+		method: 'POST',
+		url: "http://ligue.mtgnantes.fr/Inscription/Ajouter/",
+		data: { 'Pseudo'	: "a",
+				'Email'		: "b",
+				'ListeMV'	: "c"}
 	}).then( function (response) {
 		message.channel.send( response.data );
 	});
