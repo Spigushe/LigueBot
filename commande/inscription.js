@@ -13,7 +13,7 @@ exports.run = (client, message, Discord, prefix) => {
 		return false;
 	}
 	// Contrôle du lien Magic-Ville
-	if (!(args[3].match(/magic-ville/gi) && !(args[3].match(/showdeck/gi)) {
+	if (!(args[3].match(/magic-ville/gi)) && !(args[3].match(/showdeck/gi))) {
 		message.reply("le lien fourni n'est pas un lien vers un deck Magic-Ville");
 		message.delete();
 		return false();
