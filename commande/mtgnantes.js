@@ -1,7 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
-	message.reply('Appel AXIOS');
 	
 	// Test 
 	axios({
@@ -11,8 +10,7 @@ exports.run = (client, message, Discord, prefix) => {
 			info: 'test'
 		}
 	}).then( function (msg) {
-		message.channel.send('Connexion faite');
-		message.channel.send('Message : ' + msg.length );
+		message.channel.send('Message : ' + Object.prototype.toString.call(msg) );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
