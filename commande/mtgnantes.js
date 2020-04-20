@@ -5,15 +5,13 @@ exports.run = (client, message, Discord, prefix) => {
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	var liste_MV = args[1].split("=")[1];
 	
-	message.channel.send("Liste MV : https://magic-ville.fr/fr/decks/dl_appr.php?ref="+liste_MV);
-	
 	// Test 
 	axios({
 		method: 'get',
 		url: 'http://edh.mtgnantes.fr/Deck/Recuperer/'+liste_MV,
 	}).then( function (response) {
 		message.channel.send('Envoi OK');
-		message.channel.send( response.data );
+		message.channel.send( response.status );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
