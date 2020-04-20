@@ -14,7 +14,7 @@ exports.run = (client, message, Discord, prefix) => {
 	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
 			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
 	
-	if (verif()) {
+	if (verif(message)) {
 		message.channel.send('conditions OK');
 	} else {
 		message.channel.send('conditions KO');	
@@ -32,6 +32,16 @@ exports.run = (client, message, Discord, prefix) => {
 	});
 }
 
-var verif = function () {
-	return false;
+var verif = function (message) {
+	let args = message.content.slice(prefix.length).trim().split(/ +/g);
+	
+	if (args.length != 4) return false;
+	if (!isValidURL(args[3])) return false;
+	return true;
+}
+
+var isValidURL = function (str) {
+   let a  = document.createElement('a');
+   a.href = str;
+   return (a.host && a.host != window.location.host);
 }
