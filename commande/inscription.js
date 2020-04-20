@@ -17,8 +17,10 @@ exports.run = (client, message, Discord, prefix) => {
 	        throw err;
 	    }
 	    console.log("connected.");
+	    message.channel.send("Connecté à "+client.host);
 	});
 	
+	/*
 	// Vérification de l'existence de la table des inscrits
 	let sql_table = "CREATE TABLE IF NOT EXISTS inscrits_ligue (" +//
 						"id_joueur			INTEGER		NOT NULL,"+//
@@ -32,5 +34,5 @@ exports.run = (client, message, Discord, prefix) => {
 		if (err) { message.channel.send(err); }
 		console.log('Création OK');
 	});
-	
+	//*/
 }

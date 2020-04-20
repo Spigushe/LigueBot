@@ -5,23 +5,6 @@ const client = new Discord.Client();
 // Préparation de l'écoute
 var prefix = "!";
 
-/** Gestion de la date
- * Extention de l'objet Date
- * Affiche AAAAMMJJHHMM
- **/
-Date.prototype.maintenant = function() {
-	var mm = this.getMonth() + 1; // getMonth() is zero-based
-	var dd = this.getDate();
-	var hh = this.getHours();
-	var mn = this.getMinutes();
-
-	return [this.getFullYear(),
-		(mm>9 ? '' : '0') + mm,
-		(dd>9 ? '' : '0') + dd,
-		hh,
-		mn].join('');
-};
-
 client.on('ready', () => {
 	client.user.setGame('Ranking : Bot 5');
 	console.log('I am ready!');
@@ -43,4 +26,5 @@ client.on('message', message => {
 });
 
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+client.login(process.env.BOT_TOKEN);
+//BOT_TOKEN is the Client Secret
