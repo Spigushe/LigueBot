@@ -2,7 +2,7 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require('axios').default;
 	
-	var args = message.split(" ");
+	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	message.channel.send("Liste MV : " + args[1]);
 	/*
 	var liste_MV = args[1].split("=")[1];
