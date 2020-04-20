@@ -24,7 +24,7 @@ exports.run = (client, message, Discord, prefix) => {
 	//information = information + "&liste" + args[3].split("=")[1];
 	
 	message.author.send("page=Inscription&action=Ajouter"+informations);
-	
+	/*
 	// Ajout dans la base
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
@@ -32,4 +32,5 @@ exports.run = (client, message, Discord, prefix) => {
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
+	//*/
 }
