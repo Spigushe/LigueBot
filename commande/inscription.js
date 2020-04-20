@@ -18,7 +18,7 @@ exports.run = (client, message, Discord, prefix) => {
 	}
 	
 	// Création de la chaine de données pour GET
-	let information = information + "&id=" + message.author.id;
+	let information =  "&id=" + message.author.id;
 	information = information + "&pseudo=" + args[1];
 	information = information + "&hash=" + args[2];
 	information = information + "&liste" + args[3].split("=")[1];
