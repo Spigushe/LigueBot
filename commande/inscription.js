@@ -17,6 +17,8 @@ exports.run = (client, message, Discord, prefix) => {
 		return false;
 	}
 	
+	message.channel.send( message.content );
+	
 	// Ajout dans la base
 	axios({
 		method: 'post',
