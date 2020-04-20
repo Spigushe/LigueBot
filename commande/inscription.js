@@ -6,9 +6,17 @@ exports.run = (client, message, Discord, prefix) => {
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 	
 	// Contrôle des données envoyées
-	if (args.length != 4) { // Contrôle du nombre de segments
-		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");	
+	// Contrôle du nombre de segments
+	if (args.length != 4) { 
+		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");
+		message.delete();
 		return false;
+	}
+	// Contrôle du lien Magic-Ville
+	if (!(args[3].match(/magic-ville/gi) && !(args[3].match(/showdeck/gi)) {
+		message.reply("le lien fourni n'est pas un lien vers un deck Magic-Ville");
+		message.delete();
+		return false();
 	}
 	
 	//Données pour inscription
