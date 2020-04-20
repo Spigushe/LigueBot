@@ -3,7 +3,6 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	// Connexion à la base de données
 	const mysql = require('mysql');
-	message.channel.send('Package appelé');
 	
 	// Données de connexion à la base de données
 	var sql = mysql.createConnection({
@@ -13,10 +12,8 @@ exports.run = (client, message, Discord, prefix) => {
         'password':"LigueDuelCommander",
         'database':"mtgnantes_frdiscord_ligue"
 	});
-	message.channel.send('Données de connexion saisies');
 	
 	// Connexion à la base de données
-	message.channel.send('Amorce connexion');
 	sql.connect(function(err) {
 	    if (err) {
 	        message.channel.send("ERROR: " + err.message);
