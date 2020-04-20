@@ -2,7 +2,7 @@ exports.run = (client, message, Discord, prefix) => {
 	message.reply("On amorce le processus d'inscription.");
 	
 	// Connexion à la base de données
-	const sqlite = require("sqlite");
+	const sqlite = require("sqlite3").verbose();
 	
 	// open database in memory
 	let db = new sqlite3.Database(':memory:', (err) => {
