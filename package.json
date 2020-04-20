@@ -7,8 +7,6 @@
 		"discord.io": "^2.5.3",
 		"discord.js": "^12.1.1",
 		"express": "^4.15.5",
-		"sqlite3": "*",
-    	"mysql": "^2.18.1",
     	"axios": ">=0.18.1"
 	},
 	"author": "Cleomene & Linkanor & Spigushe",
