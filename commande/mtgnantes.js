@@ -3,9 +3,7 @@ exports.run = (client, message, Discord, prefix) => {
 	const axios = require('axios').default;
 	
 	var args = message.split(" ");
-	for (let i = 0; i < args.length; i++) {
-		message.channel.send("Argument " + (i+1) + " : " + args[i]);
-	}
+	message.channel.send("Liste MV : " + args[1]);
 	/*
 	var liste_MV = args[1].split("=")[1];
 	
