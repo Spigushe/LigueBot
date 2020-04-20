@@ -8,34 +8,30 @@ exports.run = (client, message, Discord, prefix) => {
 	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
 	if (args.length != 4) { 
-		message.reply("il manque des informations pour effectuer l'inscription, veuillez recommencer");
+		message.author.send("il manque des informations pour effectuer l'inscription, veuillez recommencer");
 		return false;
 	}
 	// Contrôle du lien Magic-Ville
 	if (!(args[3].match(/magic-ville/gi)) && !(args[3].match(/showdeck/gi))) {
-		message.reply("le lien fourni n'est pas un lien vers un deck Magic-Ville");
+		message.author.send("le lien fourni n'est pas un lien vers un deck Magic-Ville");
 		return false;
 	}
-	
-	//Données pour inscription
-	var inscription = {
-		'tag_auteur': message.author.tag,
-		'id_auteur': message.author.id,
-		'pseudo_cockatrice': args[1],
-		'hash_cockatrice': args[2],
-		'liste_MV': args[3].split("=")[1]
-	};
-	
-	message.channel.send(inscription['tag_auteur'] + " (" + inscription['id_auteur']+") : "+//
-			inscription['pseudo_cockatrice']+" deck "+inscription['hash_cockatrice']);
 	
 	// Ajout dans la base
 	axios({
 		method: 'post',
 		url: 'http://ligue.mtgnantes.fr/Inscription/Ajouter/',
-		data: inscription
+		data: {
+			'tag_auteur': message.author.tag,
+			'id_auteur': message.author.id,
+			'pseudo_cockatrice': args[1],
+			'hash_cockatrice': args[2],
+			'liste_MV': args[3].split("=")[1]
+		}
 	}).then( function (response) {
 		message.channel.send( response.data );
+		message.author.send("Ton inscription a été prise en compte. "+//
+			"Si tu souhaites modifier ton deck avant la date limite d'inscription, le #deck-changer est pour toi !");
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
