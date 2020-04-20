@@ -15,11 +15,11 @@ exports.run = (client, message, Discord, prefix) => {
 	// Connexion à la base de données
 	sql.connect(function(err) {
 	    if (err) {
-	        console.log("ERROR: " + err.message);
+	        message.channel.send("ERROR: " + err.message);
 	        throw err;
 	    }
 	    console.log("connected.");
-	    message.channel.send("Connecté à "+client.host);
+	    message.channel.send("Connecté à " + client.host);
 	});
 	
 	/*
