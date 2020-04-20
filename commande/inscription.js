@@ -13,7 +13,7 @@ exports.run = (client, message, Discord, prefix) => {
         'password':"LigueDuelCommander",
         'database':"mtgnantes_frdiscord_ligue"
 	});
-	message.channel('Données de connexion saisies');
+	message.channel.send('Données de connexion saisies');
 	
 	// Connexion à la base de données
 	message.channel('Amorce connexion');
