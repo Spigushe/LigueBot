@@ -23,13 +23,18 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&hash=" + args[2];
 	informations = informations + "&liste=" + args[3].split("=")[1];
 	
-	message.author.send("page=Inscription&action=Ajouter"+informations);
-	
 	// Ajout dans la base
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
-		message.channel.send( response.data );
+		if (response.data.match(/erreur/gi)) {
+			var msg = "Ton inscription a rencontré un problème : " + response.data;
+		}
+		if (response.data.match(/ok/gi)) {
+			var msg = "Ton inscription a bien été validée";
+			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
+		}
+		message.channel.send( msg );
 	}).catch( function (error) {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
