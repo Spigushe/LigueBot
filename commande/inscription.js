@@ -23,8 +23,10 @@ exports.run = (client, message, Discord, prefix) => {
 	information = information + "&hash=" + args[2];
 	information = information + "&liste" + args[3].split("=")[1];
 	
+	message.author.send("page=Inscription&action=Ajouter"+informations);
+	
 	// Ajout dans la base
-	axios.get("http://ligue.mtgnantes.fr/page=Inscription&action=Ajouter"+informations)
+	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
 		message.channel.send( response.data );
 	}).catch( function (error) {
