@@ -2,16 +2,18 @@ exports.run = (client, message, Discord, prefix) => {
 	message.reply("On amorce le processus d'inscription.");
 	
 	// Connexion à la base de données
-	const mysql = require('mysql').Client;
-	const client = new Client(); 
+	const mysql = require('mysql');
 	
 	// Données de connexion à la base de données
-	client.host = 'mtgnantes.fr.mysql';
-	client.user = 'mtgnantes_frdiscord_ligue';
-	client.password = 'LigueDuelCommander';
+	var sql = mysql.createConnection({
+        'host':"mtgnantes.fr.mysql",
+        'user':"mtgnantes_frdiscord_ligue",
+        'password':"LigueDuelCommander",
+        'database':"mtgnantes_frdiscord_ligue"
+	});
 	
 	// Connexion à la base de données
-	client.connect(function(err, results) {
+	sql.connect(function(err) {
 	    if (err) {
 	        console.log("ERROR: " + err.message);
 	        throw err;
