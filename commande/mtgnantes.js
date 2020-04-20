@@ -8,9 +8,10 @@ exports.run = (client, message, Discord, prefix) => {
 		url: 'http://ligue.mtgnantes.fr',
 		data: {
 			info: 'test'
-		}
+		},
+		responseType: 'json'
 	}).then( function (msg) {
-		message.channel.send('Message : ' + msg[0] );
+		message.channel.send( msg );
 	}).catch( function (error) {
 		message.channel.send('Erreur : ' + error );
 	});
