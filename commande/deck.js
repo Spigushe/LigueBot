@@ -23,7 +23,7 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&liste=" + args[2].split("=")[1];
 	
 	// Ajout dans la base
-	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Deck"+informations)
+	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Changer"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
