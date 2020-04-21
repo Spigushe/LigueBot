@@ -16,10 +16,7 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&nom=" + args[1];
 	informations = informations + "&id_discord=" + args[2];
 	
-	message.reply("mtgnantes/index.php?page=Role&action=Ajouter"+informations);
-	
 	// Ajout dans la base
-	/*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
@@ -27,11 +24,10 @@ exports.run = (client, message, Discord, prefix) => {
 			message.author.send("La création d'un nouveau rôle a rencontré un problème : " + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
-			message.author.send("Ton changement de deck a bien été validé");
+			message.author.send("L'ajout du nouveau rôle est fait");
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
 	});
-	//*/
 }
