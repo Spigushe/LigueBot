@@ -7,7 +7,7 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
-	if (args.length >= 3) { 
+	if (args.length < 3) { 
 		message.author.send("il manque des informations pour effectuer l'update, veuillez recommencer");
 		return false;
 	}
