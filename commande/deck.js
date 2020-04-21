@@ -22,8 +22,6 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&hash=" + args[1];
 	informations = informations + "&liste=" + args[2].split("=")[1];
 	
-	message.author.send("mtgnantes/index.php?page=Inscription&action=Deck"+informations);
-	
 	// Ajout dans la base
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Deck"+informations)
 	.then( function (response) {
