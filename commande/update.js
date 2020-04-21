@@ -22,7 +22,7 @@ exports.run = (client, message, Discord, prefix) => {
 			}
 			if (response.data.match(/--/gi)) {
 				infos = response.data.split("--");
-				message.guild.members.fetch(infos[0]).roles.remove(infos[1]).add(infos[2]);
+				message.guild.members.cache.get(infos[0]).roles.remove(infos[1]).add(infos[2]);
 				message.author.send("L'ajout du nouveau rôle est fait");
 			}
 		}).catch( function (error) {
