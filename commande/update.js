@@ -18,10 +18,10 @@ exports.run = (client, message, Discord, prefix) => {
 		informations = informations + "&pseudo=" + args[i];
 		
 		//Test en local
-		message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
+		//message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
 		
 		// Ajout dans la base
-		/*
+		//*
 		axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Attribuer"+informations)
 		.then( function (response) {
 			// La connexion à la page a réussi
