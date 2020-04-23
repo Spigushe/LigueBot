@@ -24,10 +24,10 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&liste=" + args[3].split("=")[1];
 	
 	//Test en local
-	message.reply("mtgnantes/index.php?page=Inscription&action=Ajouter"+informations);
+	//message.reply("mtgnantes/index.php?page=Inscription&action=Ajouter"+informations);
 	
 	// Ajout dans la base
-	/*
+	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
@@ -35,7 +35,9 @@ exports.run = (client, message, Discord, prefix) => {
 			message.author.send("Ton inscription a rencontré un problème : " + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
+			// Retour OK--id_role_placement
 			message.author.send("Ton inscription a bien été validée");
+			message.author.roles.add( response.data.split("--")[1] );
 			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
 		}
 	}).catch( function (error) {
