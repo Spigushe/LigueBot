@@ -17,10 +17,10 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&id_discord=" + args[2];
 	
 	//Test en local
-	message.reply("mtgnantes/index.php?page=Role&action=Ajouter"+informations);
+	//message.reply("mtgnantes/index.php?page=Role&action=Ajouter"+informations);
 	
 	// Ajout dans la base
-	/*
+	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
