@@ -30,7 +30,7 @@ exports.run = (client, message, Discord, prefix) => {
 			// OK--ligue
 			message.author.send("Le résultat a bien été enregistré");
 			message.guild.owner.send("Nouveau résultat pour la ligue "+response.data.split("--")[1]+//
-					"\n" + args[1] + "(" + args[2] + ") contre " + args[4] + "(" + args[3] + ")");
+					"\n" + args[1] + "(" + args[2] + ") contre " + args[5] + "(" + args[4] + ")");
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
