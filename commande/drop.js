@@ -26,7 +26,7 @@ exports.run = (client, message, Discord, prefix) => {
 				message.author.tag+" est parti.\n"+//
 				"Il participait à la ligue "+response.data.split("--")[1]+".\n"+//
 				"Son pseudo cockatrice est "+response.data.split("--")[0]);
-			message.author.roles.remove(response.data.split("--")[2]);
+			message.member.roles.remove(response.data.split("--")[2]);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
