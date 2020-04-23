@@ -24,11 +24,13 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.send("Ton inscription a rencontré un problème : " + response.data);
+			message.author.send("La saisie du résultat a rencontré un problème : " + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
-			message.author.send("Ton inscription a bien été validée");
-			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
+			// OK--ligue
+			message.author.send("Le résultat a bien été enregistré");
+			message.guild.owner.send("Nouveau résultat pour la ligue "+response.data.split("--")[1]+//
+					"\n" + args[1] + "(" + args[2] + ") contre " + args[4] + "(" + args[3] + ")");
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
