@@ -36,8 +36,8 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 		if (response.data.match(/ok/gi)) {
 			// Retour OK--id_role_placement
-			message.author.send("Ton inscription a bien été validée");
 			message.member.roles.add( response.data.split("--")[1] );
+			message.author.send("Ton inscription a bien été validée");
 			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
 		}
 	}).catch( function (error) {
