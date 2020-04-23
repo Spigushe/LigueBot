@@ -8,7 +8,11 @@ exports.run = (client, message, Discord, prefix) => {
 	// Création de la chaine de données pour GET
 	let informations =  "&id_discord=" + message.author.id;
 	
+	//Test en local
+	message.reply("mtgnantes/index.php?page=Inscription&action=Drop"+informations);
+	
 	// Ajout dans la base
+	/*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Drop"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
@@ -28,4 +32,5 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
 	});
+	//*/
 }

@@ -13,8 +13,16 @@ exports.run = (client, message, Discord, prefix) => {
 	}
 	
 	for (let i = 2; i < args.length; i++) {
-		// Recherche des informations pour update
-		axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Attribuer&role="+args[1]+"&pseudo="+args[i])
+		// Préparation des informations
+		let informations = "&role=" + args[1];
+		information = informations + "&pseudo=" + args[i];
+		
+		//Test en local
+		message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
+		
+		// Ajout dans la base
+		/*
+		axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Attribuer"+informations)
 		.then( function (response) {
 			// La connexion à la page a réussi
 			if (response.data.match(/erreur/gi)) {
@@ -32,5 +40,6 @@ exports.run = (client, message, Discord, prefix) => {
 			// La connexion à la page a échoué
 			message.channel.send('Erreur : ' + error );
 		});
+		//*/
 	}
 }

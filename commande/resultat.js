@@ -19,7 +19,11 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&resultat1=" + args[2];
 	informations = informations + "&resultat2=" + args[4];
 	
+	//Test en local
+	message.reply("mtgnantes/index.php?page=Resultat&action=Ajouter"+informations);
+	
 	// Ajout dans la base
+	/*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Resultat&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
@@ -36,4 +40,5 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
 	});
+	//*/
 }
