@@ -15,7 +15,7 @@ exports.run = (client, message, Discord, prefix) => {
 	for (let i = 2; i < args.length; i++) {
 		// Préparation des informations
 		let informations = "&role=" + args[1];
-		information = informations + "&pseudo=" + args[i];
+		informations = informations + "&pseudo=" + args[i];
 		
 		//Test en local
 		message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
