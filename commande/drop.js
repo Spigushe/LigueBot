@@ -9,10 +9,10 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&id=" + message.author.id;
 	
 	//Test en local
-	message.reply("mtgnantes/index.php?page=Inscription&action=Drop"+informations);
+	//message.reply("mtgnantes/index.php?page=Inscription&action=Drop"+informations);
 	
 	// Ajout dans la base
-	/*
+	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Drop"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
