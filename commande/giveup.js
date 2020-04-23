@@ -6,7 +6,7 @@ exports.run = (client, message, Discord, prefix) => {
 	// Seul le message !giveup est demandé
 	
 	// Création de la chaine de données pour GET
-	let informations =  "&id_discord=" + message.author.id;
+	let informations =  "&id=" + message.author.id;
 	
 	//Test en local
 	message.reply("mtgnantes/index.php?page=Inscription&action=GiveUp"+informations);
