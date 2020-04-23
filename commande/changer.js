@@ -32,6 +32,7 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.author.send("Ton changement de deck a rencontré un problème : " + response.data);
+			message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
 		}
 		if (response.data.match(/ok/gi)) {
 			message.author.send("Ton changement de deck a bien été validé");
