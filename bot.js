@@ -16,6 +16,11 @@ client.on('message', message => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 		
+		var commades_judgebot = ['card','price','ruling','legal','hangman','standard','cr','ipg','mtr','jar','help'];
+		for (let i = 0; i < commades_judgebot.length; i++) {
+			return false;
+		}
+		
 		try {
 			let fichierCommande = require(`./commande/${commande}.js`);
 			fichierCommande.run(client, message, Discord, prefix);
