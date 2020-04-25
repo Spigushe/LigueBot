@@ -1,4 +1,10 @@
 exports.run = (client, message, Discord, prefix) => {
+	// Controle channel d'envoi
+	if (message.channel.id != '693827015610204212') {
+		message.reply("Ce n'est pas le bon channel pour s'inscrire");
+		return true;
+	}
+	
 	// Appel du package axios
 	const axios = require('axios').default;
 	
