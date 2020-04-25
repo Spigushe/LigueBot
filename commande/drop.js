@@ -24,6 +24,7 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.guild.owner.send(message.author.tag+" a demandé à quitter la ligue. Cette action a rencontré un problème : "+response.data);
+			message.author.reply("Ta demande a rencontré un problème, un membre du staff viendra vers toi");
 		}
 		if (response.data.match(/--/gi)) {
 			// Retour : pseudo--role--id_role
