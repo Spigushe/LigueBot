@@ -28,7 +28,7 @@ client.on('message', message => {
 			message.reply("Cette commande n'existe pas");
 			console.error(err);
 		}
-	message.delete();
+		message.delete();
 	}
 });
 
