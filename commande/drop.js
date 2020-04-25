@@ -27,7 +27,7 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 		if (response.data.match(/--/gi)) {
 			// Retour : pseudo--role--id_role
-			message.author.send("Votre participation à la ligue a été retirée. Nous souhaitons te revoir au plus vite !");
+			message.author.send("Ta participation à la ligue a été retirée. Nous souhaitons te revoir au plus vite !");
 			message.guild.owner.send("C'est un sombre jour pour la ligue, "+//
 				message.author.tag+" est parti.\n"+//
 				"Il participait à la ligue "+response.data.split("--")[1]+".\n"+//
