@@ -1,4 +1,10 @@
 exports.run = (client, message, Discord, prefix) => {
+	// Controle channel d'envoi
+	if (message.channel.id != '698829793470316545') {
+		message.reply("Ce n'est pas le bon channel pour annoncer son changement de deck");
+		return true;
+	}
+	
 	// Appel du package axios
 	const axios = require('axios').default;
 	
