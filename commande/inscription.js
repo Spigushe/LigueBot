@@ -39,7 +39,7 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.author.send("Ton inscription a rencontré un problème : " + response.data);
-			message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
+			//message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
 		}
 		if (response.data.match(/ok/gi)) {
 			// Retour OK--id_role_placement
