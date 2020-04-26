@@ -18,7 +18,7 @@ client.on('message', message => {
 		
 		var commades_judgebot = ['card','price','ruling','legal','hangman','standard','cr','ipg','mtr','jar','help'];
 		for (let i = 0; i < commades_judgebot.length; i++) {
-			if (commade == commades_judgebot[i]) {
+			if (commande == commades_judgebot[i]) {
 				return false;
 			}
 		}
