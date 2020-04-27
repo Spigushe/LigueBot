@@ -33,7 +33,6 @@ exports.run = (client, message, Discord, prefix) => {
 	//message.reply("mtgnantes/index.php?page=Inscription&action=Ajouter"+informations);
 	
 	// Ajout dans la base
-	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
@@ -46,10 +45,10 @@ exports.run = (client, message, Discord, prefix) => {
 			message.member.roles.add( response.data.split("--")[1] );
 			message.author.send("Ton inscription a bien été validée");
 			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
+			message.guild.members.cache.get('178851989856190464').send("Nouvel inscrit : " + args[1] + "\nListe Magic-Ville : " + args[3]);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
 	});
-	//*/
 }
