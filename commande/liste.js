@@ -15,7 +15,7 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&role=" + args[1];
 	
 	//Test en local
-	message.reply("mtgnantes/index.php?page=Inscription&action=Liste"+informations);
+	//message.reply("mtgnantes/index.php?page=Inscription&action=Liste"+informations);
 	
 	// Ajout dans la base
 	//*
