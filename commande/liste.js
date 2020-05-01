@@ -24,11 +24,9 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.author.reply("Ta demande a rencontré un problème, un membre du staff viendra vers toi");
+			return false;
 		}
-		if (response.data.match(/--/gi)) {
-			// Retour : pseudo(hash) pseudo(hash) ...
-			message.author.reply("Liste des participants de la ligue " + args[1] + " : " + response.data );
-		}
+		message.author.reply("Liste des participants de la ligue " + args[1] + " : " + response.data );
 	}).catch( function (error) {
 		// La connexion à la page a échoué
 		message.channel.send('Erreur : ' + error );
