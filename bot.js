@@ -27,7 +27,7 @@ client.on('message', message => {
 			let fichierCommande = require(`./commande/${commande}.js`);
 			fichierCommande.run(client, message, Discord, prefix);
 		} catch (err) {
-			message.reply("Cette commande n'existe pas");
+			message.author.send("Cette commande n'existe pas");
 			console.error(err);
 		}
 		message.delete();

@@ -37,7 +37,7 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
-		message.channel.send('Erreur : ' + error );
+		message.author.send("Erreur lors de l'exécution de la commande : " + error );
 	});
 	//*/
 }

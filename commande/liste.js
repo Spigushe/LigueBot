@@ -29,7 +29,7 @@ exports.run = (client, message, Discord, prefix) => {
 		message.reply("Liste des participants de la ligue " + args[1] + " : " + response.data );
 	}).catch( function (error) {
 		// La connexion à la page a échoué
-		message.channel.send('Erreur : ' + error );
+		message.author.send("Erreur lors de l'exécution de la commande : " + error );
 	});
 	//*/
 }
