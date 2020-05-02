@@ -41,7 +41,10 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 		if (response.data.match(/ok/gi)) {
 			message.author.send("Ton changement de deck a bien été validé");
+			// Message pour Martin
 			message.guild.members.cache.get('178851989856190464').send("Changement de deck : " + args[2]);
+			// Message pour Guillaume
+			message.guild.members.cache.get('175575898563674112').send(message.author.tag + " change son deck : " + args[1]);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
