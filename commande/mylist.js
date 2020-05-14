@@ -17,7 +17,7 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&id=" + message.author.id;
 
 	//Test en local
-	message.reply("mtgnantes/index.php?page=Inscription&action=Retrieve"+informations);
+	message.author.send("mtgnantes/index.php?page=Inscription&action=Retrieve"+informations);
 
 	// Ajout dans la base
 	/*
