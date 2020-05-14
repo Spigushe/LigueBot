@@ -4,19 +4,19 @@ exports.run = (client, message, Discord, prefix) => {
 		message.reply("Ce n'est pas le bon channel pour cette commande");
 		return true;
 	}
-	
+
 	// Appel du package axios
 	const axios = require('axios').default;
-	
+
 	// Contrôle des données envoyées
 	// Seul le message !giveup est demandé
-	
+
 	// Création de la chaine de données pour GET
 	let informations =  "&id=" + message.author.id;
-	
+
 	//Test en local
 	//message.reply("mtgnantes/index.php?page=Inscription&action=GiveUp"+informations);
-	
+
 	// Ajout dans la base
 	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=GiveUp"+informations)
@@ -24,7 +24,7 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.guild.owner.send(message.author.tag+" a demandé sa mise en pause. Celle-ci a rencontré un problème : "+response.data);
-			message.author.reply("Ta demande a rencontré un problème, un membre du staff viendra vers toi");
+			message.author.send("Ta demande a rencontré un problème, un membre du staff viendra vers toi");
 		}
 		if (response.data.match(/--/gi)) {
 			// Retour : pseudo--role

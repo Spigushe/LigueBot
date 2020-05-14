@@ -25,7 +25,7 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.reply("Ta demande a rencontré un problème, nous t'invitons à réessayer");
+			message.author.send("Ta demande a rencontré un problème, nous t'invitons à réessayer");
 		} else {
             var msg = "Voici votre liste enregistrée / You can find your current list here \n"+//
 			         response.data;
