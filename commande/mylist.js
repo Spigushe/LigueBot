@@ -17,23 +17,19 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&id=" + message.author.id;
 
 	//Test en local
-	message.author.send("mtgnantes/index.php?page=Inscription&action=Retrieve"+informations);
+	//message.author.send("mtgnantes/index.php?page=Inscription&action=Retrieve"+informations);
 
 	// Ajout dans la base
-	/*
+	//*
 	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Retrieve"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.guild.owner.send(message.author.tag+" a demandé sa mise en pause. Celle-ci a rencontré un problème : "+response.data);
-			message.author.reply("Ta demande a rencontré un problème, un membre du staff viendra vers toi");
-		}
-		if (response.data.match(/--/gi)) {
-			// Retour : pseudo--role
-			message.author.send("Votre participation à la ligue a été mise en pause pour le mois en cours");
-			message.guild.owner.send(message.author.tag+" a mis en pause sa participation.\n"+//
-				"Il participait à la ligue "+response.data.split("--")[1]+".\n"+//
-				"Son pseudo cockatrice est "+response.data.split("--")[0]);
+			message.author.reply("Ta demande a rencontré un problème, nous t'invitons à réessayer");
+		} else {
+            var msg = "Voici votre liste enregistrée / You can find your current list here \n"+//
+			         response.data;
+            message.author.send(msg);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
