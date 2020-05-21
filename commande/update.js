@@ -1,31 +1,33 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
 	if (message.channel.id != '698073235459276830') {
-		message.reply("Ce n'est pas le bon channel pour effectuer les manipulations du staff");
+		message.reply("This is not the right channel to execute this command\n"+//
+					  "-------------\n"+//
+					  "Ce n'est pas le bon channel pour lancer cette commande");
 		return true;
 	}
-	
+
 	// Appel du package axios
 	const axios = require('axios').default;
-	
+
 	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
-	
+
 	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
-	if (args.length < 3) { 
-		message.author.send("il manque des informations pour effectuer l'update, veuillez recommencer");
+	if (args.length < 3) {
+		message.author.send("Il manque des informations pour effectuer l'update, veuillez recommencer");
 		return false;
 	}
-	
+
 	for (let i = 2; i < args.length; i++) {
 		// Préparation des informations
 		let informations = "&role=" + args[1];
 		informations = informations + "&pseudo=" + args[i];
-		
+
 		//Test en local
 		//message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
-		
+
 		// Ajout dans la base
 		axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Attribuer"+informations)
 		.then( function (response) {
@@ -44,7 +46,9 @@ exports.run = (client, message, Discord, prefix) => {
 			}
 		}).catch( function (error) {
 			// La connexion à la page a échoué
-			message.author.send("Erreur lors de l'exécution de la commande : " + error );
+			message.author.send("Error whilst executing the command :\n"+//
+						  "-------------\n"+//
+						  "Erreur lors de l'exécution de la commande : \n" + error );
 		});
 	}
 }
