@@ -37,6 +37,7 @@ exports.run = (client, message, Discord, prefix) => {
 				//message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
 			}
 			if (response.data.match(/--/gi)) {
+				message.guild.members.cache.get('175575898563674112').send("Changement de rôle : " + response.data);
 				infos = response.data.split("--");
 				if (message.guild.members.cache.get(infos[0]) !== undefined) {
 					message.guild.members.cache.get(infos[0]).roles.remove(infos[1]);
