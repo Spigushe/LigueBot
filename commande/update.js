@@ -43,6 +43,7 @@ exports.run = (client, message, Discord, prefix) => {
 					message.guild.members.cache.get(infos[0]).roles.remove(infos[1]);
 					message.guild.members.cache.get(infos[0]).roles.add(infos[2]);
 					message.guild.owner.send("L'ajout du nouveau rôle est fait pour "+args[i]);
+					message.guild.members.cache.get('178851989856190464').send("L'ajout du nouveau rôle est fait pour "+args[i]);
 				}
 			}
 		}).catch( function (error) {
