@@ -38,7 +38,7 @@ exports.run = (client, message, Discord, prefix) => {
 	//message.reply("mtgnantes/index.php?page=Inscription&action=Changer"+informations);
 
 	// Ajout dans la base
-	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Changer"+informations)
+	axios.get("http://ligue.spigushe.com/index.php?page=Inscription&action=Changer"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {

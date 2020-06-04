@@ -29,7 +29,7 @@ exports.run = (client, message, Discord, prefix) => {
 		//message.reply("mtgnantes/index.php?page=Role&action=Attribuer"+informations);
 
 		// Ajout dans la base
-		axios.get("http://ligue.mtgnantes.fr/index.php?page=Role&action=Attribuer"+informations)
+		axios.get("http://ligue.spigushe.com/index.php?page=Role&action=Attribuer"+informations)
 		.then( function (response) {
 			// La connexion à la page a réussi
 			if (response.data.match(/erreur/gi)) {

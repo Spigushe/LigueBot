@@ -31,6 +31,7 @@ exports.run = (client, message, Discord, prefix) => {
 
 	// Création de la chaine de données pour GET
 	let informations =  "&id=" + message.author.id;
+	informations = informations + message.author.tag;
 	informations = informations + "&pseudo=" + args[1];
 	informations = informations + "&hash=" + args[2];
 	informations = informations + "&liste=" + args[3].split("=")[1];
@@ -39,7 +40,7 @@ exports.run = (client, message, Discord, prefix) => {
 	//message.reply("mtgnantes/index.php?page=Inscription&action=Ajouter"+informations);
 
 	// Ajout dans la base
-	axios.get("http://ligue.mtgnantes.fr/index.php?page=Inscription&action=Ajouter"+informations)
+	axios.get("http://ligue.spigushe.com/index.php?page=Inscription&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
