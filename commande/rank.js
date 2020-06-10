@@ -15,9 +15,9 @@ exports.run = (client, message, Discord, prefix) => {
 			{ name: 'General Details', value: 'Commander name, Cockatrice Name, Deck hash' },
 			{ name: 'Elo ranking', value: 'League, elo points' },
 			{ name: '\u200B', value: '\u200B' },
-			{ name: 'Previous game', value: 'last opponent', inline: true },
-			{ name: '', value: 'opponent before', inline: true },
-			{ name: '', value: 'opponent before before', inline: true },
+			{ name: 'Game History', value: 'last opponent', inline: true },
+			{ name: 'Game History', value: 'opponent before', inline: true },
+			{ name: 'Game History', value: 'opponent before before', inline: true },
 		)
 		.setImage('http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png')
 		.setTimestamp()
