@@ -14,7 +14,7 @@ exports.run = (client, message, Discord, prefix) => {
 		.addFields(
 			{ name: 'General Details', value: 'Commander name, Cockatrice Name, Deck hash' },
 			{ name: 'Elo ranking', value: 'League, elo points' },
-			{ name: '\u200B', value: '\u200B' },
+			//{ name: '\u200B', value: '\u200B' },
 			{ name: 'Game History', value: 'last opponent', inline: true },
 			{ name: 'Game History', value: 'opponent before', inline: true },
 			{ name: 'Game History', value: 'opponent before before', inline: true },
