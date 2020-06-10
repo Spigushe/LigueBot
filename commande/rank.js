@@ -7,12 +7,13 @@ exports.run = (client, message, Discord, prefix) => {
 	const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle('Discord User')
-		//.setURL('https://discord.js.org/')
+		.setURL('http://ligue.spigushe.com/')
 		.setAuthor('LigueBot', 'http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png', 'http://ligue.spigushe.com/')
 		.setDescription('Details of %Discord User%')
 		.setThumbnail('http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png')
 		.addFields(
 			{ name: 'General Details', value: 'Commander name, Cockatrice Name, Deck hash' },
+			{ name: 'Elo ranking', value: 'League, elo points' },
 			{ name: '\u200B', value: '\u200B' },
 			{ name: 'Previous game', value: 'last opponent', inline: true },
 			{ name: '', value: 'opponent before', inline: true },
