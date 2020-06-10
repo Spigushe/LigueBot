@@ -19,7 +19,7 @@ exports.run = (client, message, Discord, prefix) => {
 			{ name: 'Game History', value: 'opponent before', inline: true },
 			{ name: 'Game History', value: 'opponent before before', inline: true },
 		)
-		.setImage('http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png')
+		//.setImage('http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png')
 		.setTimestamp()
 		.setFooter('Commander League', 'http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png');
 
