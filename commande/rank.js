@@ -6,10 +6,10 @@ exports.run = (client, message, Discord, prefix) => {
 	
 	const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
-		.setTitle('Discord User')
+		.setTitle('Details of '+message.author.tag)
 		.setURL('http://ligue.spigushe.com/')
 		.setAuthor('LigueBot', 'http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png', 'http://ligue.spigushe.com/')
-		.setDescription('Details of %Discord User%')
+		.setDescription('How '+message.author.tag+' is currently faring in the league')
 		.setThumbnail('http://ligue.spigushe.com/Afficher/CSS/Images/Logo.png')
 		.addFields(
 			{ name: 'General Details', value: 'Commander name, Cockatrice Name, Deck hash' },
