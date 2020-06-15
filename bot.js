@@ -5,9 +5,7 @@ const client = new Discord.Client();
 // Préparation de l'écoute
 var prefix = "!";
 
-client.on('ready', () => {
-	client.user.setGame('Ranking : Bot 5');
-});
+client.on('ready', () => {});
 
 client.on('message', message => {
 	if (message.author.bot) return;
