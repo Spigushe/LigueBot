@@ -1,6 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
-	if (message.channel.id != '698829793470316545') {
+	if (message.channel.id !== '698829793470316545') {
 		message.reply("This is not the right channel to execute this command\n"+//
 					  "-------------\n"+//
 					  "Ce n'est pas le bon channel pour lancer cette commande");
@@ -15,7 +15,7 @@ exports.run = (client, message, Discord, prefix) => {
 
 	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
-	if (args.length != 3) {
+	if (args.length !== 3) {
 		message.author.send("I am missing some informations to update your deck, please try again\n"+//
 					  "-------------\n"+//
 					  "Il manque des informations pour effectuer le changement, veuillez recommencer");

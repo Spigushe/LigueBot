@@ -1,6 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
-	if (message.channel.id != '693827015610204212') {
+	if (message.channel.id !== '693827015610204212') {
 		message.reply("This is not the right channel to execute this command\n"+//
 					  "-------------\n"+//
 					  "Ce n'est pas le bon channel pour lancer cette commande");

@@ -1,6 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
-	if (message.channel.id != '703590887560839183') {
+	if (message.channel.id !== '703590887560839183') {
 		message.reply("This is not the right channel to execute this command\n"+//
 					  "-------------\n"+//
 					  "Ce n'est pas le bon channel pour lancer cette commande");
@@ -16,7 +16,7 @@ exports.run = (client, message, Discord, prefix) => {
 	// Contrôle des données envoyées
 		//!resultat joueur_1 resultat_1 - resultat_2 joueur_2
 	// Contrôle du nombre de segments
-	if (args.length != 6) {
+	if (args.length !== 6) {
 		message.author.send("il manque des informations pour effectuer l'enregistrement du résultat, veuillez recommencer");
 		return false;
 	}

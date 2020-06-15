@@ -7,7 +7,6 @@ var prefix = "!";
 
 client.on('ready', () => {
 	client.user.setGame('Ranking : Bot 5');
-	console.log('I am ready!');
 });
 
 client.on('message', message => {
@@ -18,7 +17,7 @@ client.on('message', message => {
 
 		var commades_judgebot = ['card','price','ruling','rule','legal','hangman','standard','cr','ipg','mtr','jar','help'];
 		for (let i = 0; i < commades_judgebot.length; i++) {
-			if (commande == commades_judgebot[i]) {
+			if (commande === commades_judgebot[i]) {
 				return false;
 			}
 		}
@@ -28,7 +27,6 @@ client.on('message', message => {
 			fichierCommande.run(client, message, Discord, prefix);
 		} catch (err) {
 			message.author.send("Cette commande n'existe pas");
-			console.error(err);
 		}
 		message.delete();
 	}

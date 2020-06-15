@@ -1,9 +1,9 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
-	if (message.channel.id != '698073235459276830') {
+	if (message.channel.id !== '698073235459276830') {
 		return false;
 	}
-	
+
 	const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle('Details of '+message.author.tag)
