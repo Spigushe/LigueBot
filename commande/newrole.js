@@ -5,7 +5,6 @@ exports.run = (client, message, Discord, prefix) => {
 	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 
-	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
 	if (args.length !== 3) {
 		message.author.send("il manque des informations pour ajouter un nouveau role, veuillez recommencer");
@@ -13,8 +12,7 @@ exports.run = (client, message, Discord, prefix) => {
 	}
 
 	// Création de la chaine de données pour GET
-	let informations =  "&nom=" + args[1];
-	informations = informations + "&id_discord=" + args[2];
+	let informations =  "&nom=" + args[1] + "&id_discord=" + args[2];
 
 	// Ajout dans la base
 	axios.get("http://ligue.spigushe.com/index.php?page=Role&action=Ajouter"+informations)
