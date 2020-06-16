@@ -34,7 +34,7 @@ exports.run = (client, message, Discord, prefix) => {
 			}
 			if (response.data.match(/--/gi)) {
 				let infos = response.data.split("--");
-				if (message.guild.members.cache.get(infos[0]) !== undefined) {
+				if (message.guild.members.cache.get(infos[0]) !== "undefined") {
 					message.guild.members.cache.get(infos[0]).roles.remove(infos[1]);
 					message.guild.members.cache.get(infos[0]).roles.add(infos[2]);
 					message.guild.owner.send("L'ajout du nouveau rôle est fait pour "+item);
