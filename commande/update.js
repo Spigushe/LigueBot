@@ -20,11 +20,11 @@ exports.run = (client, message, Discord, prefix) => {
 
 	args.forEach(function(item, index, array) {
 		// Si l'index n'est pas un pseudo, on passe
-		if (index <= 1) { continue; }
-		
+		if (index <= 1) { return; }
+
 		// Préparation des informations
 		let informations = "&role=" + args[1] + "&pseudo=" + item;
-		
+
 		// Ajout dans la base
 		axios.get("http://ligue.spigushe.com/index.php?page=Role&action=Attribuer"+informations)
 		.then( function (response) {
