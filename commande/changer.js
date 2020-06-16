@@ -62,4 +62,4 @@ exports.run = (client, message, Discord, prefix) => {
 					  "-------------\n"+//
 					  "Erreur lors de l'exécution de la commande : \n" + error );
 	});
-}
+};
