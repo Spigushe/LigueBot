@@ -33,7 +33,7 @@ exports.run = (client, message, Discord, prefix) => {
 				message.author.send("L'update de "+item+" a rencontré un problème : " + response.data);
 			}
 			if (response.data.match(/--/gi)) {
-				infos = response.data.split("--");
+				let infos = response.data.split("--");
 				if (message.guild.members.cache.get(infos[0]) !== undefined) {
 					message.guild.members.cache.get(infos[0]).roles.remove(infos[1]);
 					message.guild.members.cache.get(infos[0]).roles.add(infos[2]);
