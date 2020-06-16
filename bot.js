@@ -19,11 +19,18 @@ client.on("message", (message) => {
 		
 		// Conflit avec JudgeBot
 		var judgebot = ["card","price","ruling","rule","legal","hangman","standard","cr","ipg","mtr","jar","help"];
+		/*
 		for (let i = 0; i < judgebot.length; i++) {
 			if (commande === judgebot[i]) {
 				return false;
 			}
 		}
+		//*/
+		judgebot.forEach(function(item, index, array) {
+			if (commande === item) {
+				return false;
+			}
+		});
 
 		// On exécute la commande
 		try {
