@@ -6,7 +6,7 @@ exports.run = (client, message, Discord, prefix) => {
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 
 	// Contrôle du nombre de segments
-	if (args.length !== 2) {
+	if (args.length !>= 2) {
 		message.author.send("il manque des informations pour exécuter la commande");
 		return false;
 	}
