@@ -1,14 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
-	// Controle channel d'envoi
-	if (message.channel.id !== '698073235459276830') {
-		message.reply("This is not the right channel to execute this command\n"+//
-					  "-------------\n"+//
-					  "Ce n'est pas le bon channel pour lancer cette commande");
-		return true;
-	}
-
 	// Appel du package axios
-	const axios = require('axios').default;
+	const axios = require("axios").default;
 
 	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -24,26 +16,18 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&nom=" + args[1];
 	informations = informations + "&id_discord=" + args[2];
 
-	//Test en local
-	//message.reply("mtgnantes/index.php?page=Role&action=Ajouter"+informations);
-
 	// Ajout dans la base
-	//*
 	axios.get("http://ligue.spigushe.com/index.php?page=Role&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
 			message.author.send("La création d'un nouveau rôle a rencontré un problème : " + response.data);
-			//message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
 		}
 		if (response.data.match(/ok/gi)) {
 			message.author.send("L'ajout du nouveau rôle est fait");
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
-		message.author.send("Error whilst executing the command :\n"+//
-					  "-------------\n"+//
-					  "Erreur lors de l'exécution de la commande : \n" + error );
+		message.author.send("Error whilst executing the command :\n-------------\nErreur lors de l'exécution de la commande : \n" + error );
 	});
-	//*/
-}
+};
