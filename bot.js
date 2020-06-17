@@ -16,16 +16,9 @@ client.on("message", (message) => {
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
-		
+
 		// Conflit avec JudgeBot
 		var judgebot = ["card","price","ruling","rule","legal","hangman","standard","cr","ipg","mtr","jar","help"];
-		/*
-		for (let i = 0; i < judgebot.length; i++) {
-			if (commande === judgebot[i]) {
-				return false;
-			}
-		}
-		//*/
 		judgebot.forEach(function(item, index, array) {
 			if (commande === item) {
 				return false;
@@ -34,7 +27,8 @@ client.on("message", (message) => {
 
 		// On exécute la commande
 		try {
-			let fichierCommande = require("./commande/"+commande+".js");
+			commande = "./commande/"+commande+".js";
+			let fichierCommande = require(commande);
 			fichierCommande.run(client, message, Discord, prefix);
 		} catch (err) {
 			message.author.send("Cette commande n'existe pas");
