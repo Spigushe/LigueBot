@@ -43,7 +43,7 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 		if (response.data.match(/ok/gi)) {
 			// OK--ligue
-			message.author.send("Result submitted / Le résultat a bien été enregistré\n"+ args[1] + "(" + args[2] + ") - " + args[5] + "(" + args[4] + ")");
+			message.author.send("Result submited / Le résultat a bien été enregistré\n"+ args[1] + "(" + args[2] + ") - " + args[5] + "(" + args[4] + ")");
 			// Message pour Guillaume
 			message.guild.owner.send("Nouveau résultat pour la ligue "+ response.data.split("--")[1] +//
 					"\n" + args[1] + "(" + args[2] + ") contre " + args[5] + "(" + args[4] + ")");
