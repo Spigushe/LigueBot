@@ -46,6 +46,13 @@ client.on("message", (message) => {
 			return;
 		}
 
+		/************************/
+		/************************/
+		/***                  ***/
+		/***  COMMANDES ORGA  ***/
+		/***                  ***/
+		/************************/
+		/************************/
 		if (commande === "liste")) {
 			require("./function/liste.js").run(client, message, Discord, prefix);
 			message.delete();
@@ -54,6 +61,12 @@ client.on("message", (message) => {
 
 		if (commande === "update")) {
 			require("./function/leagues.js").run(client, message, Discord, prefix);
+			message.delete();
+			return;
+		}
+
+		if (commande === "newrole")) {
+			require("./function/newrole.js").run(client, message, Discord, prefix);
 			message.delete();
 			return;
 		}
