@@ -16,7 +16,7 @@ client.on("message", (message) => {
 	if (message.content.startsWith(prefix)) {
 		var commande = message.content.slice(prefix.length).trim().split(/ +/g).shift().toLowerCase();
 		message.author.reply(commande);
-		
+
 		if ((commande === "inscription") || (commande === "register")) {
 			require("./function/register.js").run(client, message, Discord, prefix);
 			message.delete();
@@ -60,13 +60,13 @@ client.on("message", (message) => {
 			return;
 		}
 
-		if (commande === "update")) {
+		if (commande === "update") {
 			require("./function/leagues.js").run(client, message, Discord, prefix);
 			message.delete();
 			return;
 		}
 
-		if (commande === "newrole")) {
+		if (commande === "newrole") {
 			require("./function/newrole.js").run(client, message, Discord, prefix);
 			message.delete();
 			return;
