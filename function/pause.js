@@ -10,8 +10,7 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.guild.owner.send(message.author.tag+" a demandé sa mise en pause. Cette action a rencontré un problème : \n"+//
-						  response.data);
+			message.guild.owner.send(message.author.tag+" a demandé sa mise en pause. Cette action a rencontré un problème : \n"+response.data);
 			message.author.send("Your request has encountered an issue, a staff member will reach out soon\nTa demande a rencontré un problème, un membre du staff viendra vers toi");
 		}
 		if (response.data.match(/--/gi)) {
