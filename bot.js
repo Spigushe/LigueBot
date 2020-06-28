@@ -53,7 +53,7 @@ client.on("message", (message) => {
 		/***                  ***/
 		/************************/
 		/************************/
-		if (commande === "liste")) {
+		if (commande === "liste") {
 			require("./function/liste.js").run(client, message, Discord, prefix);
 			message.delete();
 			return;
