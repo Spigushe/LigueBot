@@ -12,67 +12,28 @@ client.on("message", (message) => {
 	if (message.author.bot) {
 		return;
 	}
-
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
-		var commande = message.content.slice(prefix.length).trim().split(/ +/g);
-		commande = commande.shift().toLowerCase();
-		message.author.reply(message);
+		var args = message.content.slice(prefix.length).trim().split(/ +/g);
+		var commande = args.shift().toLowerCase();
 
-		if ((commande === "inscription") || (commande === "register")) {
-			require("./function/register.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
+		// Conflit avec JudgeBot
+		var judgebot = ["card","price","ruling","rule","legal","hangman","standard","cr","ipg","mtr","jar","help"];
+		judgebot.forEach(function(item, index, array) {
+			if (commande === item) {
+				return false;
+			}
+		});
 
-		if (commande === "deck") {
-			require("./function/deck.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
+		// On exécute la commande
+		try {
+			commande = "./commande/"+commande+".js";
+			let fichierCommande = require(commande);
+			fichierCommande.run(client, message, Discord, prefix);
+		} catch (err) {
+			message.author.send("Cette commande n'existe pas");
 		}
-
-		if (commande === "pause") {
-			require("./function/pause.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
-
-		if (commande === "drop") {
-			require("./function/drop.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
-
-		if ((commande === "result") || (commande === "resultat")) {
-			require("./function/result.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
-
-		/************************/
-		/************************/
-		/***                  ***/
-		/***  COMMANDES ORGA  ***/
-		/***                  ***/
-		/************************/
-		/************************/
-		if (commande === "liste") {
-			require("./function/liste.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
-
-		if (commande === "update") {
-			require("./function/leagues.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
-
-		if (commande === "newrole") {
-			require("./function/newrole.js").run(client, message, Discord, prefix);
-			message.delete();
-			return;
-		}
+		message.delete();
 	}
 });
 
