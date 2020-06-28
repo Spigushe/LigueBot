@@ -1,4 +1,7 @@
 # LigueBot
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f204d0bb9d643f69788fca44e2e599f)](https://app.codacy.com/manual/martin.cuchet/LigueBot?utm_source=github.com&utm_medium=referral&utm_content=Spigushe/LigueBot&utm_campaign=Badge_Grade_Dashboard)
+
 Discord Bot made for dealing with the basic stuff of a league within the French
 Community in Duel Commander.
 
