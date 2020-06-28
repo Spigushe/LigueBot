@@ -1,6 +1,6 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
-	const axios = require('axios').default;
+	const axios = require("axios").default;
 
 	// Création de la chaine de données pour GET
 	let informations =  "&id=" + message.author.id;
@@ -23,4 +23,4 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a échoué
 		message.author.send("Error whilst executing the command :\nErreur lors de l'exécution de la commande : \n" + error );
 	});
-}
+};
