@@ -30,7 +30,7 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.send("The result you submitted has encountered a problem:La saisie du résultat a rencontré un problème :\n" + response.data);
+			message.author.send("The result you submitted has encountered a problem:\nLa saisie du résultat a rencontré un problème :\n" + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
 			// OK--ligue

@@ -15,7 +15,8 @@ client.on("message", (message) => {
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
 		var commande = message.content.slice(prefix.length).trim().split(/ +/g).shift().toLowerCase();
-
+		message.author.reply(commande);
+		
 		if ((commande === "inscription") || (commande === "register")) {
 			require("./function/register.js").run(client, message, Discord, prefix);
 			message.delete();
