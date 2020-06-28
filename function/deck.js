@@ -1,10 +1,4 @@
 exports.run = (client, message, Discord, prefix) => {
-	// Controle channel d'envoi
-	if (message.channel.id !== "698829793470316545") {
-		message.reply("This is not the right channel to execute this command\nCe n'est pas le bon channel pour lancer cette commande");
-		return true;
-	}
-
 	// Appel du package axios
 	const axios = require("axios").default;
 
@@ -35,10 +29,6 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 		if (response.data.match(/ok/gi)) {
 			message.author.send("Your deck-updating has been validated\nTon changement de deck a bien été validé");
-			// Message pour Martin
-			message.guild.members.cache.get("178851989856190464").send(message.author.tag + " change son deck : " + args[2]);
-			// Message pour Guillaume
-			message.guild.members.cache.get("175575898563674112").send(message.author.tag + " change son deck : " + args[1]);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué

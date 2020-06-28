@@ -1,9 +1,7 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
 	if (message.channel.id !== '703590887560839183') {
-		message.reply("This is not the right channel to execute this command\n"+//
-					  "-------------\n"+//
-					  "Ce n'est pas le bon channel pour lancer cette commande");
+		message.reply("This is not the right channel to execute this command\nCe n'est pas le bon channel pour lancer cette commande");
 		return true;
 	}
 
@@ -27,35 +25,21 @@ exports.run = (client, message, Discord, prefix) => {
 	informations = informations + "&resultat1=" + args[2];
 	informations = informations + "&resultat2=" + args[4];
 
-	//Test en local
-	//message.reply("mtgnantes/index.php?page=Resultat&action=Ajouter"+informations);
-
 	// Ajout dans la base
-	//*
 	axios.get("http://ligue.spigushe.com/index.php?page=Resultat&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.send("The result you submitted has encountered a problem:"+//
-						  "-------------\n"+//
-						  "La saisie du résultat a rencontré un problème :\n" + response.data);
-			//message.guild.owner.send("Une saisie a rencontré un problème : " + response.data + "\n" + message.content);
+			message.author.send("The result you submitted has encountered a problem:La saisie du résultat a rencontré un problème :\n" + response.data);
 		}
 		if (response.data.match(/ok/gi)) {
 			// OK--ligue
 			message.author.send("Result submited / Le résultat a bien été enregistré\n"+ args[1] + "(" + args[2] + ") - " + args[5] + "(" + args[4] + ")");
 			// Message pour Guillaume
-			message.guild.owner.send("Nouveau résultat pour la ligue "+ response.data.split("--")[1] +//
-					"\n" + args[1] + "(" + args[2] + ") contre " + args[5] + "(" + args[4] + ")");
-			// Message pour Martin
-			message.guild.members.cache.get('178851989856190464').send("Nouveau résultat pour la ligue "+ response.data.split("--")[1] +//
-					"\n" + args[1] + "(" + args[2] + ") contre " + args[5] + "(" + args[4] + ")");
+			message.guild.owner.send("Nouveau résultat pour la ligue "+ response.data.split("--")[1] + "\n" + args[1] + "(" + args[2] + ") contre " + args[5] + "(" + args[4] + ")");
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
-		message.author.send("Error whilst executing the command :\n"+//
-					  "-------------\n"+//
-					  "Erreur lors de l'exécution de la commande : \n" + error );
+		message.author.send("Error whilst executing the command :\nErreur lors de l'exécution de la commande : \n" + error );
 	});
-	//*/
 }
