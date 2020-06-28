@@ -12,11 +12,12 @@ client.on("message", (message) => {
 	if (message.author.bot) {
 		return;
 	}
+
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
 		var commande = message.content.slice(prefix.length).trim().split(/ +/g);
 		commande = commande.shift().toLowerCase();
-		message.author.reply(commande);
+		message.author.reply(message);
 
 		if ((commande === "inscription") || (commande === "register")) {
 			require("./function/register.js").run(client, message, Discord, prefix);
