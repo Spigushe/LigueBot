@@ -14,7 +14,8 @@ client.on("message", (message) => {
 	}
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
-		var commande = message.content.slice(prefix.length).trim().split(/ +/g).shift().toLowerCase();
+		var commande = message.content.slice(prefix.length).trim().split(/ +/g)
+		commande = commande.shift().toLowerCase();
 		message.author.reply(commande);
 
 		if ((commande === "inscription") || (commande === "register")) {
