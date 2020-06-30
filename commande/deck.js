@@ -21,7 +21,7 @@ exports.run = (client, message, Discord, prefix) => {
 	let informations =  "&id=" + message.author.id + "&hash=" + args[1] + "&liste=" + args[2].split("=")[1];
 
 	// Ajout dans la base
-	axios.get("http://ligue.spigushe.com/index.php?page=Inscription&action=Changer"+informations)
+	axios.get("http://ligue.spigushe.com/index.php?page=Deck&action=Ajouter"+informations)
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
