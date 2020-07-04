@@ -17,6 +17,6 @@ exports.run = (client, message, Discord, prefix) => {
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
-		message.author.send("Error whilst executing the command :\nErreur lors de l'exécution de la commande : \n" + error );
+		message.author.send("Error whilst executing the command :\n-------------\nErreur lors de l'exécution de la commande : \n" + error );
 	});
 };
