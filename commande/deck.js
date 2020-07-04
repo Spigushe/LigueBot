@@ -2,10 +2,6 @@ exports.run = (client, message, Discord, prefix) => {
 	// Appel du package axios
 	const axios = require("axios").default;
 
-	// Update bloquée
-	message.author.send("Deck update is no longer possible for this season, please reach a staff member if you have any problem\nLe changement de deck n'est plus possible pour cette saison, contactez un membre du staff si vous avez un problème");
-	return;
-	
 	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 
