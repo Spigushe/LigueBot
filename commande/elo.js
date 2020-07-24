@@ -19,14 +19,14 @@ exports.run = (client, message, Discord, prefix) => {
 	.then( function (response) {
 		// La connexion à la page a réussi
 		if (response.data.match(/erreur/gi)) {
-			message.author.send("L'update de "+item+" a rencontré un problème : " + response.data);
+			message.author.send("L'update de "+args[1]+" a rencontré un problème : " + response.data);
 		}
 		if (response.data.match(/--/gi)) {
 			let infos = response.data.split("--");
 			if (message.guild.members.cache.get(infos[0]) !== "undefined") {
 				message.guild.members.cache.get(infos[0]).roles.remove(infos[1]);
 				message.guild.members.cache.get(infos[0]).roles.add(infos[2]);
-				message.guild.members.cache.get("178851989856190464").send("L'ajout du nouveau rôle est fait pour "+item);
+				message.guild.members.cache.get("178851989856190464").send("L'ajout du nouveau rôle est fait pour "+args[1]);
 			}
 		}
 	}).catch( function (error) {
