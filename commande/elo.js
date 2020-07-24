@@ -7,12 +7,12 @@ exports.run = (client, message, Discord, prefix) => {
 
 	// Contrôle des données envoyées
 	// Contrôle du nombre de segments
-	if (args.length < 3) {
+	if (args.length < 2) {
 		message.author.send("Il manque des informations pour effectuer l'update, veuillez recommencer");
 		return false;
 	}
 
-	let informations = "&role=" + args[1] + "&pseudo=" + args[2];
+	let informations = "&role=Elo-Aout&pseudo=" + args[1];
 
 	// Ajout dans la base
 	axios.get("http://ligue.spigushe.com/index.php?page=Role&action=Attribuer"+informations)
