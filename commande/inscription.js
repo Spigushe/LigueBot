@@ -11,20 +11,8 @@ exports.run = (client, message, Discord, prefix) => {
 	// Informations de la commande
 	var args = message.content.slice(prefix.length).trim().split(/ +/g);
 
-	// Contrôle des données envoyées
-	// Contrôle du nombre de segments
-	if (args.length !== 4) {
-		message.author.send("I am missing some informations to register you, please try again\nIl manque des informations pour effectuer le changement, veuillez recommencer");
-		return false;
-	}
-	// Contrôle du lien Magic-Ville
-	if (!(args[3].match(/magic-ville/gi)) && !(args[3].match(/showdeck/gi))) {
-		message.author.send("The link you gave is not a Magic-Ville link\nLe lien fourni n'est pas un lien vers un deck Magic-Ville");
-		return false;
-	}
-
 	// Création de la chaine de données pour GET
-	let informations =  "&id=" + message.author.id + "&pseudo=" + args[1] + "&hash=" + args[2] + "&liste=" + args[3].split("=")[1];
+	let informations =  "&id=" + message.author.id + "&pseudo=" + args[1];
 
 	// Ajout dans la base
 	axios.get("http://ligue.spigushe.com/index.php?page=Inscription&action=Ajouter"+informations)
@@ -39,7 +27,7 @@ exports.run = (client, message, Discord, prefix) => {
 			message.member.roles.add( response.data.split("--")[1] );
 			message.author.send("Your registration has been validated\nTon inscription a bien été validée");
 			message.guild.owner.send("L'utilisateur discord : " + message.author.tag + " s'est inscrit(e) à la ligue !");
-			message.guild.members.cache.get("178851989856190464").send("Nouvel inscrit : " + args[1] + "\nListe Magic-Ville : " + args[3]);
+			message.guild.members.cache.get("178851989856190464").send("Nouvel inscrit : " + args[1]);
 		}
 	}).catch( function (error) {
 		// La connexion à la page a échoué
