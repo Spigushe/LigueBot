@@ -1,12 +1,12 @@
 exports.run = (client, message, Discord, prefix) => {
 	// Controle channel d'envoi
-	if (message.channel.id !== '693827015610204212') {
+	if (message.channel.id !== "693827015610204212") {
 		message.reply("This is not the right channel to execute this command\nCe n'est pas le bon channel pour lancer cette commande");
 		return true;
 	}
 
 	// Appel du package axios
-	const axios = require('axios').default;
+	const axios = require("axios").default;
 
 	// Création de la chaine de données pour GET
 	let informations =  "&id=" + message.author.id;
