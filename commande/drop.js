@@ -29,4 +29,4 @@ exports.run = (client, message, Discord, prefix) => {
 		// La connexion à la page a échoué
 		message.author.send("Error whilst executing the command :\nErreur lors de l'exécution de la commande : \n" + error );
 	});
-}
+};
