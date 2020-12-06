@@ -11,9 +11,11 @@ exports.run = (client, message, Discord, prefix) => {
 	let nick = message.content.slice(prefix.length).trim().split(/ +/g)[1];
 
 	// Notify in the proper channel
+	/*
 	let channel_id = "785259925143420949";
 	let channel = client.channels.find(channel => channel.id === "785259925143420949");
 
 	channel.send("coucou");
+	//*/
 	message.reply(message.content);
 };
