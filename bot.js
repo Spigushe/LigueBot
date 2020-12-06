@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 // Préparation de l'écoute
-var prefix = "!";
+const prefix = "!";
 
 client.on("ready", () => {});
 
@@ -17,23 +17,13 @@ client.on("message", (message) => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 
-		// Conflit avec JudgeBot
-		var judgebot = ["card","price","ruling","rule","legal","hangman","standard","cr","ipg","mtr","jar","help"];
-		for (let i = 0; i < judgebot.length; i++) {
-			if (commande === judgebot[i]) {
-				return false;
-			}
-		}
-
-		// On exécute la commande
-		try {
-			commande = "./commande/"+commande+".js";
+		// Check commands
+		if ((commande == "inscription") || (commande == "register")) {
+			commande = "./commande/register.js";
 			let fichierCommande = require(commande);
 			fichierCommande.run(client, message, Discord, prefix);
-		} catch (err) {
-			message.author.send("Cette commande n'existe pas");
+			message.delete();
 		}
-		message.delete();
 	}
 });
 
