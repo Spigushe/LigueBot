@@ -10,5 +10,7 @@ exports.run = (client, message, Discord, prefix) => {
 	let nick = message.content.slice(prefix.length).trim().split(/ +/g)[1];
 
 	// Notify in the proper channel
+	message.reply("test");
 	client.channels.cache.get("785259925143420949").send("coucou");
+	message.reply("test");
 };
