@@ -17,6 +17,7 @@ client.on("message", (message, client) => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 
+		message.reply(message.content);
 		// Check commands
 		if ((commande === "inscription") || (commande === "register")) {
 			let chemin = "./commande/register.js";
@@ -24,7 +25,6 @@ client.on("message", (message, client) => {
 			fichierCommande.run(client, message, Discord, prefix);
 			message.delete();
 		}
-		message.reply(message.content);
 	}
 });
 
