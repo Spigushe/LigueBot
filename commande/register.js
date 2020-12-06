@@ -6,8 +6,11 @@ exports.run = (client, message, Discord, prefix) => {
 		return true;
 	}
 
+	// Cockatrice nickname
+	let nickname = message.content.slice(prefix.length).trim().split(/ +/g)[1];
+
 	// Notify in the proper channel
-	message.reply("test");
-	//let channel = client.channels.cache.get("785259925143420949");
-	message.reply("test");
+	message.client.channels.cache
+		.get("785278831384723527")
+		.send("Inscription de <@"+message.author.id+"> avec le pseudo **"+nickname+"**");
 };

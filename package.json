@@ -1,14 +1,25 @@
 {
-	"name": "LigueBot",
-	"version": "1.0.0",
-	"description": "",
-	"main": "bot.js",
-	"dependencies": {
-		"discord.io": "^2.5.3",
-		"discord.js": "^12.1.1",
-		"express": "^4.15.5",
-    	"axios": ">=0.18.1"
-	},
-	"author": "Cleomene & Linkanor & Spigushe",
-	"license": "ISC"
+  "name": "liguebot",
+  "version": "1.0.2",
+  "description": "Discord Bot built to manage the Commander League",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.15.5"
+  },
+  "author": "Cleomene & Linkanor & Spigushe",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spigushe/LigueBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Spigushe/LigueBot/issues"
+  },
+  "homepage": "https://github.com/Spigushe/LigueBot#readme"
 }

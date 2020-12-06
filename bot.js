@@ -1,22 +1,24 @@
 // Connexion Discord
 const Discord = require("discord.js");
 const client = new Discord.Client();
+require('dotenv').config();
 
 // Préparation de l'écoute
 const prefix = "!";
 
 client.on("ready", () => {});
 
-client.on("message", (message, client) => {
+client.on("message", (message, client, Discord) => {
+	console.log(message.content);
+
 	// On ne contrôle pas les messages d'un bot
 	if (message.author.bot) { return false; }
-	
+
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 
-		message.reply(message.content);
 		// Check commands
 		if ((commande === "inscription") || (commande === "register")) {
 			let chemin = "./commande/register.js";
