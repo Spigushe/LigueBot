@@ -1,11 +1,5 @@
 // League Registration Command
 exports.run = (client, message, Discord, prefix) => {
-	// Channel Control
-	if (message.channel.id !== "693827015610204212") {
-		message.reply("This is not the right channel to execute this command, please go to <#693827015610204212>");
-		return true;
-	}
-
 	// Cockatrice nickname
 	let nickname = message.content.slice(prefix.length).trim().split(/ +/g)[1];
 
@@ -13,6 +7,9 @@ exports.run = (client, message, Discord, prefix) => {
 	message.client.channels.cache
 		.get("785278831384723527")
 		.send("📝 Inscription de <@"+message.author.id+">\n**Pseudo** "+nickname);
+
+	// Give dedicated role
+	message.member.roles.add("774314371001352233");
 
 	if (message.guild !== null) {
 		message.delete();
