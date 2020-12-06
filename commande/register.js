@@ -7,6 +7,7 @@ exports.run = (client, message, Discord, prefix) => {
 	}
 
 	// Notify in the proper channel
+	message.reply("test");
 	client.channels.cache.get("785259925143420949").send("coucou");
 	message.reply("test");
 };
