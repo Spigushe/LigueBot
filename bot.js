@@ -24,7 +24,7 @@ client.on("message", (message) => {
 			fichierCommande.run(client, message, Discord, prefix);
 			message.delete();
 		}
-		message.author.send(commande);
+		message.channel.send(commande);
 	}
 });
 
