@@ -1,7 +1,7 @@
 // Connexion Discord
 const Discord = require("discord.js");
 const client = new Discord.Client();
-require('dotenv').config();
+require("dotenv").config();
 
 // Préparation de l'écoute
 const prefix = "!";
@@ -19,13 +19,21 @@ client.on("message", (message, client, Discord) => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 
-		// Check commands
+		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
 			let chemin = "./commande/register.js";
 			let fichierCommande = require(chemin);
 			fichierCommande.run(client, message, Discord, prefix);
-			message.delete();
 		}
+
+		// 🎲 Envoi de deck
+		if (commande === "deck") {
+			let chemin = "./commande/deck.js";
+			let fichierCommande = require(chemin);
+			fichierCommande.run(client, message, Discord, prefix);
+		}
+
+		// 🎮 Saisie de résultat
 	}
 });
 

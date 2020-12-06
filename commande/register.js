@@ -1,4 +1,4 @@
-// Registration Command
+// League Registration Command
 exports.run = (client, message, Discord, prefix) => {
 	// Channel Control
 	if (message.channel.id !== "693827015610204212") {
@@ -12,5 +12,9 @@ exports.run = (client, message, Discord, prefix) => {
 	// Notify in the proper channel
 	message.client.channels.cache
 		.get("785278831384723527")
-		.send("Inscription de <@"+message.author.id+"> avec le pseudo **"+nickname+"**");
+		.send("📝 Inscription de <@"+message.author.id+">\n**Pseudo** "+nickname);
+
+	if (message.guild !== null) {
+		message.delete();
+	}
 };
