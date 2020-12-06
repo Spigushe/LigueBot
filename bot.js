@@ -7,7 +7,7 @@ const prefix = "!";
 
 client.on("ready", () => {});
 
-client.on("message", (message) => {
+client.on("message", (message, client) => {
 	// On ne contrôle pas les messages d'un bot
 	if (message.author.bot) {
 		return false;
