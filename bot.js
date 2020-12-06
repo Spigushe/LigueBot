@@ -9,9 +9,8 @@ client.on("ready", () => {});
 
 client.on("message", (message, client) => {
 	// On ne contrôle pas les messages d'un bot
-	if (message.author.bot) {
-		return false;
-	}
+	if (message.author.bot) { return false; }
+	
 	// Est-ce que ça commence par un prefix ?
 	if (message.content.startsWith(prefix)) {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
