@@ -17,5 +17,5 @@ exports.run = (client, message, Discord, prefix) => {
 
 	channel.send("coucou");
 	//*/
-	client.channels.get("785259925143420949").send("coucou");
+	client.channels.cache.get("785259925143420949").send("coucou");
 };
