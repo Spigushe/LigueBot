@@ -19,11 +19,12 @@ client.on("message", (message) => {
 
 		// Check commands
 		if ((commande == "inscription") || (commande == "register")) {
-			let fichierCommande = require("./commande/register.js");
+			chemin = "./commande/register.js";
+			let fichierCommande = require(chemin);
 			fichierCommande.run(client, message, Discord, prefix);
 			message.delete();
 		}
-		message.channel.send(commande);
+		message.reply(message.content);
 	}
 });
 

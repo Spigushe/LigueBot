@@ -15,5 +15,5 @@ exports.run = (client, message, Discord, prefix) => {
 	let channel = client.channels.find(channel => channel.id === "785259925143420949");
 
 	channel.send("coucou");
-
+	message.reply(message.content);
 };
