@@ -17,5 +17,5 @@ exports.run = (client, message, Discord, prefix) => {
 
 	channel.send("coucou");
 	//*/
-	message.reply(message.content);
+	message.reply(message.guild.id);
 };

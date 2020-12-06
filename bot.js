@@ -18,8 +18,8 @@ client.on("message", (message) => {
 		var commande = args.shift().toLowerCase();
 
 		// Check commands
-		if ((commande == "inscription") || (commande == "register")) {
-			chemin = "./commande/register.js";
+		if ((commande === "inscription") || (commande === "register")) {
+			let chemin = "./commande/register.js";
 			let fichierCommande = require(chemin);
 			fichierCommande.run(client, message, Discord, prefix);
 			message.delete();
