@@ -10,7 +10,5 @@ exports.run = (client, message, Discord, prefix) => {
 	let nick = message.content.slice(prefix.length).trim().split(/ +/g)[1];
 
 	// Notify in the proper channel
-	client.channels.cache
-		.get("785259925143420949")
-		.send("Inscription de <@"+message.author.id+">\nPseudo Cockatrice : "+nick);
+	client.channels.cache.get("785259925143420949").send("Inscription de <@"+message.author.id+">\nPseudo Cockatrice : "+nick);
 };
