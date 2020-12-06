@@ -12,10 +12,10 @@ exports.run = (client, message, Discord, prefix) => {
 
 	// Notify in the proper channel
 	/*
-	let channel_id = "785259925143420949";
-	let channel = client.channels.find(channel => channel.id === "785259925143420949");
+	let guild = client.guilds.get("693799306398007316");
+	let channel = client.channels.get("785259925143420949");
 
 	channel.send("coucou");
 	//*/
-	message.reply(message.guild.id);
+	client.channels.get("785259925143420949").send("coucou");
 };
