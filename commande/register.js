@@ -8,6 +8,6 @@ exports.run = (client, message, Discord, prefix) => {
 
 	// Notify in the proper channel
 	message.reply("test");
-	let channel = client.channels.cache.get("785259925143420949");
+	//let channel = client.channels.cache.get("785259925143420949");
 	message.reply("test");
 };
