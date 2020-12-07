@@ -60,6 +60,8 @@ client.on("message", (message, client, Discord) => {
 			message.client.channels.cache
 				.get("785260212147191888")
 				.send("🎮 **Nouveau résultat**\n"+j1+" ("+r1+")  -  "+j2+" ("+r2+")");
+			// Delete message if not in DM
+			if (message.guild !== null) { message.delete(); }
 		}
 	}
 });
