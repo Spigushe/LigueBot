@@ -47,7 +47,7 @@ client.on("message", (message, client, Discord) => {
 			let j2 = args[4];
 			let r1 = args[1] *1;
 			let r2 = args[3] *1;
-			if ((r1 === r2) || ((r1+r2) > 3)) {
+			if ((r1 === r2) || ((r1+r2) > 3) || ((r1+r2) < 2)) {
 				message.author.send("The results does not seem correct, please re-send them");
 				return false;
 			}
