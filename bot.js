@@ -47,18 +47,19 @@ client.on("message", (message, client, Discord) => {
 			let j2 = args[4];
 			let r1 = args[1] *1;
 			let r2 = args[3] *1;
-			if ((r1 == r2) || ((r1 + r2) > 3)) {
+			if ((r1 === r2) || ((r1+r2) > 3)) {
 				message.author.send("The results does not seem correct, please re-send them");
 				return false;
 			}
 			if (r1 < r2) {
+				let j0 = r0 = 0;
 				j0 = j1;	r0 = r1;
 				j1 = j2;	r1 = r2;
 				j2 = j0;	r2 = r0;
 			}
 			// Notify in the proper channel
 			message.client.channels.cache
-				.get("785260212147191888")
+				.get("785278831384723527")
 				.send("🎮 **Nouveau résultat**\n"+j1+" ("+r1+")  -  "+j2+" ("+r2+")");
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
