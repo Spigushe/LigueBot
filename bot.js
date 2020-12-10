@@ -38,7 +38,7 @@ client.on("message", (message) => {
 				.get("785278831384723527")
 				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
 			// Player notice
-			message.author.send("✅ **Merci pour ton deck**"\n("+args[0]+") "+args[1]);
+			message.author.send("✅ **Merci pour ton deck**("+args[0]+") "+args[1]);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
