@@ -25,6 +25,8 @@ client.on("message", (message) => {
 				.send("📝 **Nouvelle inscription** pour <@"+message.author.id+">\nPseudo "+args[0]);
 			// Give dedicated role
 			message.member.roles.add("774314371001352233");
+			// Instruct the player to add a deck
+			message.author.send("✨ **Merci pour ton inscription**\nTu dois maintenant renseigner le deck avec lequel tu vas jouer. Regarde ce salon pour plus d'information <#698829793470316545>");
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
@@ -35,20 +37,22 @@ client.on("message", (message) => {
 			message.client.channels.cache
 				.get("785278831384723527")
 				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
+			// Player notice
+			message.author.send("✅ **Merci pour ton deck**"\n("+args[0]+") "+args[1]);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
 
 		// 🎮 Saisie de résultat
 		if ((commande === "resultat") || (commande === "result")) {
-			message.author.send("You sent the following results : ```"+message.content+"```");
+			message.author.send("⚔️ **Nouveau résultat**\nTu as envoyé ce résultat : ```"+message.content+"```");
 			// Prepare string
 			let j1 = args[0];
 			let j2 = args[4];
 			let r1 = args[1] *1;
 			let r2 = args[3] *1;
 			if ((r1 === r2) || ((r1+r2) > 3) || ((r1+r2) < 2)) {
-				message.author.send("The results does not seem correct, please re-send them");
+				message.author.send("🤔 Ce résultat me semble étrange, pourrais-tu vérifier stp");
 				return false;
 			}
 			if (r1 < r2) {
