@@ -55,8 +55,8 @@ client.on("message", (message) => {
 				message.author.send("🤔 Ce résultat me semble étrange, pourrais-tu vérifier stp");
 				return false;
 			}
-			if (r1 < r2) {
-				let j0 = r0 = 0;
+			if (r1 < r2) { // Change results to always have winner on the left side
+				let j0 = 0;	let r0 = 0;
 				j0 = j1;	r0 = r1;
 				j1 = j2;	r1 = r2;
 				j2 = j0;	r2 = r0;
