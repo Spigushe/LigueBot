@@ -33,12 +33,22 @@ client.on("message", (message) => {
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
+			// Vérification de l'archétype
+			let macrotype = getMacrotype(args);
+			let macrotype_str = "";
+			if (macrotype !== false) { // Il y a un macrotype envoyé
+				if (macrotype !== "erreur") { // Le macrotype est supporté
+					macrotype_str = "\nMacrotype envoyé : " + macrotype;
+				} else { // Le macrotype n'existe pas
+					message.author.send(sendMacrotypeInfo());
+				}
+			}
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("785278831384723527")
-				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
+				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]+macrotype_str);
 			// Player notice
-			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]);
+			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+macrotype_str);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
@@ -70,6 +80,51 @@ client.on("message", (message) => {
 		}
 	}
 });
+
+var _clean = function (name) {
+	name = name.replace(/\s|,|\.|-|—|'|:|\(|\)|"|\/|!/g, "");
+	name = name.replace(/ö|ó|ô/g, "o");
+	name = name.replace(/é|ë|è/g, "e");
+	name = name.replace(/œ/g, "oe");
+	name = name.replace(/ç/g, "c");
+	name = name.replace(/á|ã/g, "a")
+	name = name.replace(/í|î/g, "i")
+	name = name.replace(/ñ/g, "n");
+	name = name.replace(/ü|ú/g, "u");
+	return name;
+}
+
+var getMacrotype = function (args) {
+	// Check if an macrotype has been passed
+	for (let i = 0; i < (args.length - 1); i++) {
+		if ((args[i] === "-archetype") || (args[i] === "--archetype")) {
+			if (isMacrotype(args[i+1])) {
+				return args[i+1];
+			} else {
+				return "erreur";
+			}
+		}
+	}
+	return false;
+};
+var isMacrotype = function (envoi) {
+	var macrotypes = ["agro", "aggro", "tempo", "controle", "combo", "midrange"];
+	envoi = _clean(envoi);
+	for (let i = 0; i < macrotypes.length; i++) {
+		if (envoi === macrotypes[i]) {
+			return true;
+		}
+	}
+	return false
+}
+var sendMacrotypeInfo = function () {
+	let str = "";
+	str = "⚠️ **Macrotype inconnu**";
+	str = str + "\nLe macrotype que tu as envoyé ne correspond pas aux macrotypes utilisés pour la catégorisation des decks dans cette ligue.";
+	str = str + "\nNous nous basons sur le classement **C** disponible sur le Barrin's Codex.";
+	str = str + "\nNous t'invitons à contacter un administrateur pour corriger l'information envoyée";
+	return str + "\nhttps://barrins-codex.org/fr/articles/lart-de-classifier-les-decks/classification-en-macrotypes.html#5_macrotypes";
+}
 
 client.login(process.env.BOT_TOKEN);
 //BOT_TOKEN is the Client Secret
