@@ -97,7 +97,7 @@ var _clean = function (name) {
 var getMacrotype = function (args) {
 	// Check if an macrotype has been passed
 	for (let i = 0; i < (args.length - 1); i++) {
-		if ((args[i] === "-archetype") || (args[i] === "--archetype")) {
+		if ((args[i] === "-archetype") || (args[i] === "--archetype") || (args[i] === "-macrotype") || (args[i] === "--macrotype")) {
 			if (isMacrotype(args[i+1])) {
 				return args[i+1];
 			} else {
