@@ -1,5 +1,6 @@
 // Fonctions support
 var _clean = function (name) {
+	name = name.toLowerCase()
 	name = name.replace(/\s|,|\.|-|—|'|:|\(|\)|"|\/|!/g, "");
 	name = name.replace(/ö|ó|ô/g, "o");
 	name = name.replace(/é|ë|è/g, "e");
@@ -27,9 +28,8 @@ var getMacrotype = function (args) {
 };
 var isMacrotype = function (envoi) {
 	var macrotypes = ["agro", "aggro", "tempo", "controle", "combo", "midrange"];
-	envoi = _clean(envoi);
 	for (let i = 0; i < macrotypes.length; i++) {
-		if (envoi === macrotypes[i]) {
+		if (_clean(envoi) === macrotypes[i]) {
 			return true;
 		}
 	}
