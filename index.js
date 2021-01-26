@@ -18,8 +18,7 @@ var getMacrotype = function (args) {
 		if ((args[i] === "-archetype") || (args[i] === "--archetype") || (args[i] === "-macrotype") || (args[i] === "--macrotype")) {
 			if (isMacrotype(args[i+1])) {
 				return args[i+1];
-			}
-			else {
+			} else {
 				return "erreur";
 			}
 		}
@@ -70,12 +69,19 @@ client.on("message", (message) => {
 			message.client.channels.cache
 				.get("785278831384723527")
 				.send("📝 **Nouvelle inscription** pour <@"+message.author.id+">\nPseudo "+args[0]);
-			// Give dedicated role
-			message.member.roles.add("774314371001352233");
 			// Instruct the player to add a deck
 			message.author.send("✨ **Merci pour ton inscription**\nTu dois maintenant renseigner le deck avec lequel tu vas jouer. Regarde ce salon pour plus d'information <#698829793470316545>");
-			// Delete message if not in DM
-			if (message.guild !== null) { message.delete(); }
+
+			if (message.guild !== null) {
+				// Give dedicated role
+				message.member.roles.add("774314371001352233");
+				// Delete message
+				message.delete();
+			} else {
+				message.client.channels.cache
+					.get("785278831384723527")
+					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
+			}
 		}
 
 		// 🎲 Envoi de deck
