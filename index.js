@@ -86,6 +86,7 @@ client.on("message", (message) => {
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
+			/* Registration not possible anymore
 			// Vérification de l'archétype
 			let macrotype = getMacrotype(args);
 			let strMacrotype = "";
@@ -102,6 +103,12 @@ client.on("message", (message) => {
 				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]+strMacrotype);
 			// Player notice
 			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+strMacrotype);
+			//*/
+			// Rejection messages
+			message.author.send("❌ **Fin des envois de deck**\nTu devras jouer avec la dernière version que tu nous as déposée");
+			message.client.channels.cache
+				.get("785278831384723527")
+				.send("🎲 **Refus d'un deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
