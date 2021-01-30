@@ -120,24 +120,27 @@ client.on("message", (message) => {
 		if ((commande === "resultat") || (commande === "result")) {
 			message.author.send("⚔️ **Nouveau résultat**\nTu as envoyé ce résultat : ```"+message.content+"```");
 			// Prepare string
-			let j1 = args[0];
-			let j2 = args[4];
-			let r1 = args[1] *1;
-			let r2 = args[3] *1;
+			let j1 = args[0];		let j2 = args[4];
+			let r1 = args[1] * 1;	let r2 = args[3] * 1;
 			if ((r1 === r2) || ((r1+r2) > 3) || ((r1+r2) < 2)) {
 				message.author.send("🤔 Ce résultat me semble étrange, pourrais-tu vérifier stp");
 				return false;
 			}
+			let str = "🎮 **Nouveau résultat**\n";
 			if (r1 < r2) { // Change results to always have winner on the left side
-				let j0 = 0;	let r0 = 0;
-				j0 = j1;	r0 = r1;
-				j1 = j2;	r1 = r2;
-				j2 = j0;	r2 = r0;
+				str = str + j2 + " (" + r2 + ")  -  " + j1 + " (" + r1 + ")";
+			} else {
+				str = str + j1 + " (" + r1 + ")  -  " + j2 + " (" + r2 + ")";
+			}
+			if (message.guild !== null) {
+				str = str + "\nMessage envoyé depuis <#" + message.channel.id + ">";
+			} else {
+				str = str + "\nMessage envoyé en MP au bot";
 			}
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("785278831384723527")
-				.send("🎮 **Nouveau résultat**\n"+j1+" ("+r1+")  -  "+j2+" ("+r2+")");
+				.send(str);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
