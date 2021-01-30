@@ -1,6 +1,6 @@
 // Fonctions support
 var _clean = function (name) {
-	name = name.toLowerCase()
+	name = name.toLowerCase();
 	name = name.replace(/\s|,|\.|-|—|'|:|\(|\)|"|\/|!/g, "");
 	name = name.replace(/ö|ó|ô/g, "o");
 	name = name.replace(/é|ë|è/g, "e");
@@ -86,7 +86,7 @@ client.on("message", (message) => {
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
-			/* Registration not possible anymore
+			//* Registration not possible anymore
 			// Vérification de l'archétype
 			let macrotype = getMacrotype(args);
 			let strMacrotype = "";
@@ -104,11 +104,13 @@ client.on("message", (message) => {
 			// Player notice
 			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+strMacrotype);
 			//*/
+			/* Registration accepted
 			// Rejection messages
 			message.author.send("❌ **Fin des envois de deck**\nTu devras jouer avec la dernière version que tu nous as déposée");
 			message.client.channels.cache
 				.get("785278831384723527")
-				.send("🎲 **Refus d'un deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
+				.send("❌ **Refus d'un deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
+			//*/
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
 		}
