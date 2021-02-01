@@ -137,6 +137,7 @@ client.on("message", (message) => {
 			} else {
 				str = str + "\nMessage envoyé en MP au bot";
 			}
+			str = str + "\n*Contenu du message* : `" + message.content + "`";
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("785278831384723527")
