@@ -69,8 +69,19 @@ client.on("message", (message) => {
 			message.client.channels.cache
 				.get("785278831384723527")
 				.send("📝 **Nouvelle inscription** pour <@"+message.author.id+">\nPseudo "+args[0]);
-			// Instruct the player to add a deck
-			message.author.send("✨ **Merci pour ton inscription**\nTu dois maintenant renseigner le deck avec lequel tu vas jouer. Regarde ce salon pour plus d'information <#698829793470316545>");
+			
+			let str = ""; // Prepare the bot's message to the player
+			if (commande === "inscription") { // FR
+				str = str + "✨ **Merci pour ta pré-inscription**\n";
+				str = str + "Tu dois maintenant renseigner le deck avec lequel tu vas jouer pour valider ton inscription.\n";
+				str = str + "Regarde ce salon pour plus d'information <#698829793470316545>");
+			}
+			if (commande === "register") { // EN
+				str = str + "✨ **Thank you for you pre-registration**\n";
+				str = str + "You must now enter the deck you are going to play with to confirm your registration.\n";
+				str = str + "Go to this channel for more information <#698829793470316545>");
+			}
+			message.author.send(str);
 
 			if (message.guild !== null) {
 				// Give dedicated role
