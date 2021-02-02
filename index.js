@@ -74,12 +74,12 @@ client.on("message", (message) => {
 			if (commande === "inscription") { // FR
 				str = str + "✨ **Merci pour ta pré-inscription**\n";
 				str = str + "Tu dois maintenant renseigner le deck avec lequel tu vas jouer pour valider ton inscription.\n";
-				str = str + "Regarde ce salon pour plus d'information <#698829793470316545>");
+				str = str + "Regarde ce salon pour plus d'information <#698829793470316545>";
 			}
 			if (commande === "register") { // EN
 				str = str + "✨ **Thank you for you pre-registration**\n";
 				str = str + "You must now enter the deck you are going to play with to confirm your registration.\n";
-				str = str + "Go to this channel for more information <#698829793470316545>");
+				str = str + "Go to this channel for more information <#698829793470316545>";
 			}
 			message.author.send(str);
 
