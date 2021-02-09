@@ -65,11 +65,12 @@ client.on("message", (message) => {
 
 		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
+			/* Registration closed
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("785278831384723527")
 				.send("📝 **Nouvelle inscription** pour <@"+message.author.id+">\nPseudo "+args[0]);
-			
+
 			let str = ""; // Prepare the bot's message to the player
 			if (commande === "inscription") { // FR
 				str = str + "✨ **Merci pour ta pré-inscription**\n";
@@ -94,6 +95,14 @@ client.on("message", (message) => {
 					.get("785278831384723527")
 					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
 			}
+			//*/
+			//* Registration accepted
+			// Rejection messages
+			message.author.send("❌ **Fin des inscriptions**\nNous te donnons rendez-vous pour notre prochain tournoi");
+			message.client.channels.cache
+				.get("785278831384723527")
+				.send("❌ **Refus d'une inscription** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
+			//*/
 		}
 
 		// 🎲 Envoi de deck
