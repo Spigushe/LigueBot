@@ -41,7 +41,7 @@ var sendMacrotypeInfo = function () {
 	str = str + "\nLe macrotype que tu as envoyé ne correspond pas aux macrotypes utilisés pour la catégorisation des decks dans cette ligue.";
 	str = str + "\nNous nous basons sur le classement **C** disponible sur le Barrin's Codex.";
 	str = str + "\nNous t'invitons à contacter un administrateur pour corriger l'information envoyée";
-	return str + "\nhttps://barrins-codex.org/fr/articles/lart-de-classifier-les-decks/classification-en-macrotypes.html#5_macrotypes";
+	return str + "\nhttps://barrins-codex.org/fr/articles/classifier-un-deck/les-macrotypes.html#5_macrotypes";
 }
 
 // Connexion Discord
