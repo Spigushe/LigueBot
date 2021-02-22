@@ -88,7 +88,7 @@ client.on("message", (message) => {
 				// Give dedicated role
 				//message.member.roles.add("774314371001352233"); // Tournament A
 				//message.member.roles.add("805194196973649970"); // Tournament B
-				message.member.roles.add("813468204025249833"); // Tournament C
+				message.member.roles.add("810990493767827496"); // Tournament C
 				// Delete message
 				message.delete();
 			} else {
