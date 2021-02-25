@@ -108,7 +108,7 @@ client.on("message", (message) => {
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
-			//* Registration accepted
+			/* Registration accepted
 			// Vérification de l'archétype
 			let macrotype = getMacrotype(args);
 			let strMacrotype = "";
@@ -126,7 +126,7 @@ client.on("message", (message) => {
 			// Player notice
 			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+strMacrotype);
 			//*/
-			/* Registration closed
+			//* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des envois de deck**\nTu devras jouer avec la dernière version que tu nous as déposée");
 			message.client.channels.cache
