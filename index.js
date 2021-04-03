@@ -63,9 +63,24 @@ client.on("message", (message) => {
 		var args = message.content.slice(prefix.length).trim().split(/ +/g);
 		var commande = args.shift().toLowerCase();
 
+		if (commande === "fun") {
+			// Tirage au sort
+			let pos = Math.floor(Math.random() * commandZone.length);
+			let cz = commandZone.splice(pos, 1); // Retrait
+			// Retour du bot
+			let str = "🤖 **Bip, Boup**\nI assigned you those two commanders:```";
+			str = str + cz;
+			str = str + "```Please do not tell anyone about the two I've given you! 🤐"
+			message.reply(str);
+			// Info orga
+			message.client.channels.cache
+				.get("827908068960501760")
+				.send("😂 I've given `"+cz+"` to <@"+message.author.id+">");
+		}
+
 		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
-			/* Registration open
+			//* Registration open
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("785278831384723527")
@@ -86,29 +101,29 @@ client.on("message", (message) => {
 
 			if (message.guild !== null) {
 				// Give dedicated role
-				//message.member.roles.add("774314371001352233"); // Tournament A
+				message.member.roles.add("774314371001352233"); // Tournament A
 				//message.member.roles.add("805194196973649970"); // Tournament B
-				message.member.roles.add("810990493767827496"); // Tournament C
+				//message.member.roles.add("810990493767827496"); // Tournament C
 				// Delete message
 				message.delete();
 			} else {
 				message.client.channels.cache
-					.get("785278831384723527")
+					.get("827908068960501760")
 					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
 			}
 			//*/
-			//* Registration closed
+			/* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des inscriptions**\nNous te donnons rendez-vous pour notre prochain tournoi");
 			message.client.channels.cache
-				.get("785278831384723527")
+				.get("827908068960501760")
 				.send("❌ **Refus d'une inscription** pour <@"+message.author.id+"> ("+args[0]+") ");
 			//*/
 		}
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
-			/* Registration accepted
+			//* Registration accepted
 			// Vérification de l'archétype
 			let macrotype = getMacrotype(args);
 			let strMacrotype = "";
@@ -121,16 +136,16 @@ client.on("message", (message) => {
 			}
 			// Notify in the proper channel
 			message.client.channels.cache
-				.get("785278831384723527")
+				.get("827908068960501760")
 				.send("🎲 **Nouveau deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]+strMacrotype);
 			// Player notice
 			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+strMacrotype);
 			//*/
-			//* Registration closed
+			/* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des envois de deck**\nTu devras jouer avec la dernière version que tu nous as déposée");
 			message.client.channels.cache
-				.get("785278831384723527")
+				.get("827908068960501760")
 				.send("❌ **Refus d'un deck** pour <@"+message.author.id+">\n("+args[0]+") "+args[1]);
 			//*/
 			// Delete message if not in DM
@@ -161,7 +176,7 @@ client.on("message", (message) => {
 			str = str + "\n*Contenu du message* : `" + message.content + "`";
 			// Notify in the proper channel
 			message.client.channels.cache
-				.get("785278831384723527")
+				.get("827908068960501760")
 				.send(str);
 			// Delete message if not in DM
 			if (message.guild !== null) { message.delete(); }
