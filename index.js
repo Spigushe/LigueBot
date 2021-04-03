@@ -71,7 +71,7 @@ client.on("message", (message) => {
 			let str = "🤖 **Bip, Boup**\nI assigned you those two commanders:```";
 			str = str + cz;
 			str = str + "```Please do not tell anyone about the two I've given you! 🤐"
-			message.reply(str);
+			message.author.send(str);
 			// Info orga
 			message.client.channels.cache
 				.get("827908068960501760")
