@@ -83,7 +83,7 @@ client.on("message", (message) => {
 			//* Registration open
 			// Notify in the proper channel
 			message.client.channels.cache
-				.get("785278831384723527")
+				.get("827908068960501760")
 				.send("📝 **Nouvelle inscription** pour <@"+message.author.id+">\nPseudo "+args[0]);
 
 			let str = ""; // Prepare the bot's message to the player
