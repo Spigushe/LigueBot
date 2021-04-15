@@ -92,7 +92,7 @@ client.on("message", (message) => {
 
 		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
-			//* Registration open
+			/* Registration open
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("827908068960501760")
@@ -113,7 +113,7 @@ client.on("message", (message) => {
 			message.author.send(str);
 
 			// Tournoi fun
-			//*
+			/*
 			let pos = Math.floor(Math.random() * commandZone.length);
 			let cz = commandZone.splice(pos, 1); // Retrait
 			// Retour du bot
@@ -122,7 +122,7 @@ client.on("message", (message) => {
 			str = str + "```Please do not tell anyone about the two I've given you! 🤐"
 			message.author.send(str);
 			//*/
-
+			/*
 			// Info orga
 			message.client.channels.cache
 				.get("827908068960501760")
@@ -141,7 +141,7 @@ client.on("message", (message) => {
 					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
 			}
 			//*/
-			/* Registration closed
+			//* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des inscriptions**\nNous te donnons rendez-vous pour notre prochain tournoi");
 			message.client.channels.cache
