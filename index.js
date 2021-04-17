@@ -44,33 +44,6 @@ var sendMacrotypeInfo = function () {
 	return str + "\nhttps://barrins-codex.org/fr/articles/classifier-un-deck/les-macrotypes.html#5_macrotypes";
 }
 
-var commandZone = new Array(
-	"Akiri, Line-Slinger - Baral, Chief of Compliance",
-	"Arahbo, Roar of the World - Breya, Etherium Shaper",
-	"Edgar Markov - Derevi, Empyrial Tactician",
-	"Reyhan, Last of the Abzan - Ludevic, Necro-Alchemist",
-	"Najeela, the Blade-Blossom - Omnath, Locus of Creation",
-	"Geist of Saint Traft - Oloro, Ageless Ascetic",
-	"Edric, Spymaster of Trest - Krark, the Thumbless",
-	"Tymna the Weaver - Thrasios, Triton Hero",
-	"Zurgo Bellstriker - Emry, Lurker of the Loch",
-	"Keleth, Sunmane Familiar - Prime Speaker Vannifar",
-	"Yuriko, the Tiger's Shadow - Esior, Wardwing Familiar",
-	"Jeska, Thrice Reborn - Tasigur, the Golden Fang",
-	"Marath, Will of the Wild - Teferi, Temporal Archmage",
-	"Vial Smasher the Fierce - Urza, Lord High Artificer",
-	"Ludevic, Necro-Alchemist - Krark, the Thumbless",
-	"Baral, Chief of Compliance - Prime Speaker Vannifar",
-	"Tasigur, the Golden Fang - Thrasios, Triton Hero",
-	"Omnath, Locus of Creation - Derevi, Empyrial Tactician",
-	"Breya, Etherium Shaper - Emry, Lurker of the Loch",
-	"Urza, Lord High Artificer - Teferi, Temporal Archmage",
-	"Ardenn, Intrepid Archaeologist - Esior, Wardwing Familiar",
-	"Bruse Tarl, Boorish Herder - Oloro, Ageless Ascetic",
-	"Rofellos, Llanowar Emissary - Rograkh, Son of Rohgahh",
-	"Keleth, Sunmane Familiar - Oloro, Ageless Ascetic",
-);
-
 // Connexion Discord
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -92,7 +65,7 @@ client.on("message", (message) => {
 
 		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
-			/* Registration open
+			//* Registration open
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("827908068960501760")
@@ -112,27 +85,11 @@ client.on("message", (message) => {
 
 			message.author.send(str);
 
-			// Tournoi fun
-			/*
-			let pos = Math.floor(Math.random() * commandZone.length);
-			let cz = commandZone.splice(pos, 1); // Retrait
-			// Retour du bot
-			str = "🤖 **Bip, Boup**\nI assigned you those two commanders:```";
-			str = str + cz;
-			str = str + "```Please do not tell anyone about the two I've given you! 🤐"
-			message.author.send(str);
-			//*/
-			/*
-			// Info orga
-			message.client.channels.cache
-				.get("827908068960501760")
-				.send("😂 I've given `"+cz+"` to <@"+message.author.id+">");
-
 			if (message.guild !== null) {
 				// Give dedicated role
 				//message.member.roles.add("774314371001352233"); // Tournament A
-				//message.member.roles.add("805194196973649970"); // Tournament B
-				message.member.roles.add("810990493767827496"); // Tournament C
+				message.member.roles.add("805194196973649970"); // Tournament B
+				//message.member.roles.add("810990493767827496"); // Tournament C
 				// Delete message
 				message.delete();
 			} else {
@@ -141,7 +98,7 @@ client.on("message", (message) => {
 					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
 			}
 			//*/
-			//* Registration closed
+			/* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des inscriptions**\nNous te donnons rendez-vous pour notre prochain tournoi");
 			message.client.channels.cache
