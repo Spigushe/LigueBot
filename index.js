@@ -65,7 +65,7 @@ client.on("message", (message) => {
 
 		// 📝 Inscription
 		if ((commande === "inscription") || (commande === "register")) {
-			/* Registration open
+			//* Registration open
 			// Notify in the proper channel
 			message.client.channels.cache
 				.get("827908068960501760")
@@ -87,8 +87,8 @@ client.on("message", (message) => {
 
 			if (message.guild !== null) {
 				// Give dedicated role
-				//message.member.roles.add("774314371001352233"); // Tournament A
-				message.member.roles.add("805194196973649970"); // Tournament B
+				message.member.roles.add("774314371001352233"); // Tournament A
+				//message.member.roles.add("805194196973649970"); // Tournament B
 				//message.member.roles.add("810990493767827496"); // Tournament C
 				// Delete message
 				message.delete();
@@ -98,7 +98,7 @@ client.on("message", (message) => {
 					.send("🤖 Il faudra ajouter le rôle manuellement pour ce participant");
 			}
 			//*/
-			//* Registration closed
+			/* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des inscriptions**\nNous te donnons rendez-vous pour notre prochain tournoi");
 			message.client.channels.cache
@@ -109,7 +109,7 @@ client.on("message", (message) => {
 
 		// 🎲 Envoi de deck
 		if (commande === "deck") {
-			/* Registration accepted
+			//* Registration accepted
 			// Vérification de l'archétype
 			let macrotype = getMacrotype(args);
 			let strMacrotype = "";
@@ -127,7 +127,7 @@ client.on("message", (message) => {
 			// Player notice
 			message.author.send("✅ **Merci pour ton deck**\n("+args[0]+") "+args[1]+strMacrotype);
 			//*/
-			//* Registration closed
+			/* Registration closed
 			// Rejection messages
 			message.author.send("❌ **Fin des envois de deck**\nTu devras jouer avec la dernière version que tu nous as déposée");
 			message.client.channels.cache
